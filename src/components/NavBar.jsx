@@ -13,13 +13,13 @@ const NavBar = () => {
 
   const menuItems = [
     { id: "home", label: "Home" },
-    { id: "form", label: "Service" },
+    { id: "form", label: "Get Quote" },
     { id: "about", label: "About Us" },
     { id: "contact", label: "Contact" },
   ];
 
   return (
-    <header className="p-4 bg-[#35acac] text-black fixed top-0 left-0 w-full z-50 shadow-lg">
+    <header className="p-4 bg-primary text-teritory fixed top-0 left-0 w-full z-50 shadow-lg">
       <div className="container flex justify-between h-16 mx-auto">
         {/* Logo */}
         <div className="flex items-center p-2">
@@ -57,7 +57,7 @@ const NavBar = () => {
         <ul
           className={`${
             menuOpen ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row md:items-stretch space-y-3 md:space-y-0 md:space-x-3 absolute md:static top-16 left-0 w-full md:w-auto bg-[#35acac] md:bg-transparent md:top-0 p-4 md:p-0`}
+          } md:flex flex-col md:flex-row md:items-stretch space-y-3 md:space-y-0 md:space-x-3 absolute md:static top-16 left-0 w-full md:w-auto bg-primary md:bg-transparent md:top-0 p-4 md:p-0`}
         >
           {menuItems.map((item) => (
             <li key={item.id} className="flex">
@@ -65,7 +65,7 @@ const NavBar = () => {
                 to={item.id}
                 smooth={true}
                 duration={500}
-                className="block w-full px-4 py-4 cursor-pointer hover:text-white"
+                className="block w-full px-4 py-4 cursor-pointer hover:text-heading hover-animated-border"
                 onClick={() => handleNavigate(item.id)}
               >
                 {item.label}

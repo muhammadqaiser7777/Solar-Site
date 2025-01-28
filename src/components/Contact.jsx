@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="py-6 text-white">
+    <section className=" text-tertiary">
       <div className="text-center text-6xl pb-10">Contact Us</div>
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
@@ -22,7 +22,7 @@ const Contact = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <span>Fake address, 9999 City</span>
+              <span>Dummy address, 9999 City</span>
             </p>
             <p className="flex items-center">
               <svg
@@ -57,28 +57,28 @@ const Contact = () => {
             <span className="mb-1">Full name</span>
             <input
               type="text"
-              placeholder="Leroy Jenkins"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+              placeholder="Enter your name"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-100 focus:ring-heading  text-tertiary "
             />
           </label>
           <label className="block">
             <span className="mb-1">Email address</span>
             <input
               type="email"
-              placeholder="leroy@jenkins.com"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+              placeholder="Enter your email"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 text-black"
             />
           </label>
           <label className="block">
             <span className="mb-1">Message</span>
             <textarea
               rows="3"
-              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 text-black resize-none"
             ></textarea>
           </label>
           <button
             type="button"
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#35acac] dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600"
+            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#35acac]  focus:dark:ring-violet-600 hover:dark:ring-violet-600"
           >
             Submit
           </button>

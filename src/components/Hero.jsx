@@ -2,12 +2,12 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image1 from "../assets/image1.jpg";
-import solar1 from "../assets/solar1.mp4";
-import image2 from "../assets/image2.jpg";
-import solar2 from "../assets/solar2.mp4";
-import leftarrow from "../assets/left-arrow.png";
-import rightarrow from "../assets/right-arrow.png";
+import image1 from "../assets/images/image1.jpg";
+import solar1 from "../assets/videos/solar1.mp4";
+import image2 from "../assets/images/image2.jpg";
+import solar2 from "../assets/videos/solar2.mp4";
+import leftarrow from "../assets/images/left-arrow.png";
+import rightarrow from "../assets/images/right-arrow.png";
 
 // Custom arrow components
 const CustomPrevArrow = ({ onClick }) => (
@@ -44,25 +44,25 @@ const Hero = () => {
       type: "image",
       src: image1,
       alt: "Image 1",
-      text: "Install solar panels and reduce your energy bills. Get a free quote today!",
+      text: "Install solar panels and reduce your energy bills. Get a quote today!",
     },
     {
       type: "video",
       src: solar1,
       alt: "Video 1",
-      text: "Custom solar solutions tailored to your needs. Request a quote!",
+      text: "Custom solar solutions tailored to your needs. Request a free quote!",
     },
     {
       type: "image",
       src: image2,
       alt: "Image 2",
-      text: "Keep your solar system running smoothly with expert maintenance. Get a quote!",
+      text: "Keep your solar system running with expert maintenance. Get a quote!",
     },
     {
       type: "video",
       src: solar2,
       alt: "Video 2",
-      text: "Store excess solar energy for later use. Request a quote now!",
+      text: "Store excess solar energy for later use. Request a free quote now!",
     },
   ];
 
@@ -102,7 +102,7 @@ const Hero = () => {
             )}
 
             {/* Text overlay */}
-            <div className="absolute md:top-96 md:left-5 top-80 left-0 text-xl text-white md:text-2xl font-bold bg-black bg-opacity-50 p-4 rounded-md">
+            <div className="absolute md:top-80 md:left-52  top-80 left-0 text-xl bg-[#fe9b29d6] text-secondary md:text-2xl font-bold  bg-opacity-50 p-12 rounded-4xl cursor-pointer hover:bg-primary hover:text-tertiary transition-colors duration-400">
               {item.text}
             </div>
           </div>

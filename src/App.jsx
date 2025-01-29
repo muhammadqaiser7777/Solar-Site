@@ -13,7 +13,7 @@ import Test from "./pages/test";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/solarsite">
       <div className="bg-secondary text-white">
         <NavBar />
         <ScrollUp />

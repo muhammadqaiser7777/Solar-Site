@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,7 +29,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
     onClick={onClick}
-    aria-label="Next"
+    aria-label="Next Slide"
   >
     <img
       src={rightarrow}
@@ -75,7 +76,7 @@ const Hero = () => {
     autoplay: true,
     autoplaySpeed: 5000, // 5 seconds per slide
     arrows: true,
-    prevArrow: <CustomPrevArrow />,
+    prevArrow: <CustomPrevArrow />, 
     nextArrow: <CustomNextArrow />,
     pauseOnHover: false,
   };
@@ -101,9 +102,19 @@ const Hero = () => {
               />
             )}
 
-            {/* Text overlay */}
-            <div className="absolute md:top-80 md:left-52  top-80 left-0 text-xl bg-[#fe9b29d6] text-secondary md:text-2xl font-bold  bg-opacity-50 p-12 rounded-4xl cursor-pointer hover:bg-primary hover:text-tertiary transition-colors duration-400">
-              {item.text}
+            {/* Text overlay and Get Quote button */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-xl md:text-2xl font-bold text-secondary bg-opacity-50 p-4 md:p-8 rounded-4xl cursor-pointer">
+              <p className="mb-4 bg-[#fe9b29d6] px-6 py-10 rounded-lg">
+                {item.text}
+              </p>
+              <ScrollLink
+                to="form"
+                smooth={true}
+                duration={500}
+                className="mt-4 px-20 py-3 bg-primary text-tertiary font-semibold text-lg rounded-lg shadow-lg hover:bg-heading hover:text-primary transition-ease-in-out duration-400 cursor-pointer"
+              >
+                Get Quote
+              </ScrollLink>
             </div>
           </div>
         ))}

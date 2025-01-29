@@ -74,7 +74,8 @@ const FormSection = () => {
   const currentField = fields[currentStep];
 
   return (
-    <div className="max-w-md mx-auto  mt-8 p-4 text-white rounded-md shadow-md">
+    <div className="max-w-md mx-auto text-white rounded-md shadow-md">
+      <h1 className="text-6xl hover-animation">Get a Quote</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label

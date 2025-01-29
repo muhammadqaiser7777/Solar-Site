@@ -3,10 +3,14 @@ import React from "react";
 const Contact = () => {
   return (
     <section className=" text-tertiary">
-      <div className="text-center text-6xl pb-10">Contact Us</div>
+      <div className="text-center">
+        <h2 className="text-3xl sm:text-6xl mb-4 hover-animation cursor-pointer">
+          Contact Us
+        </h2>
+      </div>
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
-          <h1 className="text-4xl font-bold">Get in touch</h1>
+          <h1 className="text-4xl font-bold text-heading">Get in touch</h1>
           <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
           <div className="space-y-4">
             <p className="flex items-center">
@@ -58,7 +62,7 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Enter your name"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-100 focus:ring-heading  text-tertiary "
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-100 focus:ring-heading border "
             />
           </label>
           <label className="block">
@@ -66,19 +70,19 @@ const Contact = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 text-black"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-heading border"
             />
           </label>
           <label className="block">
             <span className="mb-1">Message</span>
             <textarea
               rows="3"
-              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 text-black resize-none"
+              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-heading  resize-none border"
             ></textarea>
           </label>
           <button
             type="button"
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#35acac]  focus:dark:ring-violet-600 hover:dark:ring-violet-600"
+            className="self-center px-8 py-3 text-lg rounded-2xl  bg-heading cursor-pointer text-primary hover:bg-primary hover:text-tertiary  hover:dark:ring-primary"
           >
             Submit
           </button>

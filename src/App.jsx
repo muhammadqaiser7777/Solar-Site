@@ -13,7 +13,7 @@ import Test from "./pages/test";
 
 function App() {
   return (
-    <Router basename="/solarsite">
+    <Router basename="/usasolars">
       <div className="bg-secondary text-white">
         <NavBar />
         <ScrollUp />
@@ -27,7 +27,7 @@ function App() {
         <div id="about" className="min-h-screen pt-24">
           <AboutUs />
         </div>
-        <div id="companies"className="pt-10 ">
+        <div id="companies">
           <CompaniesSection/>
         </div>
         <div id="contact" className="min-h-screen pt-24 ">

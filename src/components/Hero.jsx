@@ -13,28 +13,28 @@ import rightarrow from "../assets/images/right-arrow.png";
 // Custom arrow components
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
+    className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
     onClick={onClick}
     aria-label="Previous Slide"
   >
     <img
       src={leftarrow}
       alt="Previous"
-      className="w-10 h-10 hover:scale-110 transition-transform"
+      className="w-6 h-6 sm:w-10 sm:h-10 hover:scale-110 transition-transform"
     />
   </button>
 );
 
 const CustomNextArrow = ({ onClick }) => (
   <button
-    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
+    className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
     onClick={onClick}
     aria-label="Next Slide"
   >
     <img
       src={rightarrow}
       alt="Next"
-      className="w-10 h-10 hover:scale-110 transition-transform"
+      className="w-6 h-6 sm:w-10 sm:h-10 hover:scale-110 transition-transform"
     />
   </button>
 );
@@ -82,10 +82,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-section h-screen relative">
+    <div className="hero-section h-screen sm:h-[80vh] relative">
       <Slider {...settings}>
         {sliderItems.map((item, index) => (
-          <div key={index} className="slider-item w-full h-screen relative">
+          <div key={index} className="slider-item w-full h-screen sm:h-[90vh] relative">
             {item.type === "image" ? (
               <img
                 src={item.src}
@@ -103,15 +103,15 @@ const Hero = () => {
             )}
 
             {/* Text overlay and Get Quote button */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-xl md:text-2xl font-bold text-secondary bg-opacity-50 p-4 md:p-8 rounded-4xl cursor-pointer">
-              <p className="mb-4 bg-[#fe9b29d6] px-6 py-10 rounded-lg">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-base sm:text-xl md:text-2xl font-bold text-secondary bg-opacity-50 p-2 sm:p-4 md:p-8  cursor-pointer ">
+              <p className="mb-2 sm:mb-4 bg-[#fe9b29d6] px-4 sm:px-6 py-6 sm:py-10 rounded-4xl">
                 {item.text}
               </p>
               <ScrollLink
                 to="form"
                 smooth={true}
                 duration={500}
-                className="mt-4 px-20 py-3 bg-primary text-tertiary font-semibold text-lg rounded-lg shadow-lg hover:bg-heading hover:text-primary transition-ease-in-out duration-400 cursor-pointer"
+                className="mt-2 sm:mt-4 px-10 sm:px-20 py-2 sm:py-3 bg-primary text-tertiary font-semibold text-sm sm:text-lg rounded-4xl shadow-lg hover:bg-heading hover:text-primary transition-ease-in-out duration-400 cursor-pointer"
               >
                 Get Quote
               </ScrollLink>

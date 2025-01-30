@@ -2,6 +2,7 @@ import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import footerBg from "../assets/images/footer-img.jpg";
+import Logo from "../assets/images/logo.png";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -34,14 +35,12 @@ const Footer = () => {
             to="home"
             smooth={true}
             duration={500}
-            className="flex justify-center space-x-3 lg:justify-start cursor-pointer"
+            className="flex justify-center space-x-3 lg:justify-start cursor-pointer pl-3"
             onClick={() => handleNavigate("home")}
           >
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-violet-600"></div>
-            <span className="self-center text-2xl font-semibold hover-animation">
-              Solar Tech
-            </span>
+            <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24 " />
           </ScrollLink>
+          <h1 className="font-bold text-2xl ">Solar Solutions, <span className="text-heading">Made Simple.</span></h1>
         </div>
 
         {/* Footer Links */}

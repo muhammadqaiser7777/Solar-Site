@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Logo from "../assets/images/logo.png";
 
 const NavBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu toggle
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
-
-  const handleNavigate = (id) => {
-    navigate(`/${id}`);
-    setMenuOpen(false); // Close menu on click
-  };
 
   const menuItems = [
     { id: "home", label: "Home" },
@@ -17,6 +14,33 @@ const NavBar = () => {
     { id: "about", label: "About Us" },
     { id: "contact", label: "Contact" },
   ];
+
+  // Function to scroll smoothly when URL changes
+  const scrollToSection = (id) => {
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn(`Section "${id}" not found.`);
+      }
+    }, 500); // Slight delay ensures React fully renders sections
+  };
+
+  // Scroll when page reloads or URL changes manually
+  useEffect(() => {
+    const sectionId = location.pathname.replace("/", "");
+    if (sectionId) {
+      scrollToSection(sectionId);
+    }
+  }, [location.pathname]);
+
+  // Handle menu click navigation
+  const handleNavigate = (id) => {
+    navigate(`/${id}`); // Update URL
+    setMenuOpen(false);
+    scrollToSection(id); // Scroll smoothly
+  };
 
   return (
     <header className="p-4 bg-primary text-teritory fixed top-0 left-0 w-full z-50 shadow-lg">
@@ -30,9 +54,10 @@ const NavBar = () => {
             className="cursor-pointer text-lg font-bold"
             onClick={() => handleNavigate("home")}
           >
-            Solar Tech
+            <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-auto" />
           </ScrollLink>
         </div>
+
         {/* Hamburger Button */}
         <button
           className="flex justify-end p-4 md:hidden"
@@ -53,6 +78,7 @@ const NavBar = () => {
             />
           </svg>
         </button>
+
         {/* Unified Menu */}
         <ul
           className={`${

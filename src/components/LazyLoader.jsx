@@ -1,45 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 
-const LazyFeaturesSection = React.lazy(() =>
-  import("../components/FeaturesSection")
-);
+const LazyFeaturesSection = lazy(() => import("./FeaturesSection"));
 
 const LazyLoader = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const observerRef = React.useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observerRef.current.disconnect(); // Stop observing after first load
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
 
-    const target = document.querySelector("#features");
-    if (target) observer.observe(target);
+    const target = document.getElementById("features");
+    if (target) observerRef.current.observe(target);
 
-    return () => observer.disconnect();
+    return () => observerRef.current?.disconnect();
   }, []);
 
   return (
     <div id="features" className="pt-10">
-      {isVisible ? (
-        <React.Suspense
-          fallback={
-            <div className="flex justify-center items-center h-64">
-              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
-            </div>
-          }
-        >
-          <LazyFeaturesSection />
-        </React.Suspense>
-      ) : (
-        <div className="flex justify-center items-center h-64">
-          <p>Loading features...</p>
-        </div>
-      )}
+      <Suspense
+        fallback={
+          <div className="flex justify-center items-center h-64">
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+          </div>
+        }
+      >
+        {isVisible && <LazyFeaturesSection />}
+      </Suspense>
     </div>
   );
 };

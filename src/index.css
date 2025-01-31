@@ -96,3 +96,12 @@
     }
   }
 }
+@layer utilities {
+  .hover-animation {
+    @apply transition-all duration-300 hover:scale-105;
+  }
+  
+  img {
+    @apply align-middle; /* Fixes spacing issues */
+  }
+}

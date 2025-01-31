@@ -11,7 +11,7 @@ const LazyLoader = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observerRef.current.disconnect(); // Stop observing after first load
+          observerRef.current.disconnect(); 
         }
       },
       { threshold: 0.2 }

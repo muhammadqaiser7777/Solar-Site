@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   const footerLinks = [
-    { id: "home", label: "Home" },
+    { id: "/", label: "Home" },
     { id: "contact", label: "Contact Us" },
     { id: "about", label: "About Us" },
     { id: "form", label: "Get Quote" },

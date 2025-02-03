@@ -1,61 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { Link as ScrollLink } from "react-scroll";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
 
   const menuItems = [
-    { id: "home", label: "Home" },
-    { id: "form", label: "Get Quote" },
-    { id: "about", label: "About Us" },
-    { id: "contact", label: "Contact" },
+    { path: "/", label: "Home" },
+    { path: "/form", label: "Get Quote" },
+    { path: "/about", label: "About Us" },
+    { path: "/contact", label: "Contact" },
   ];
-
-  // Function to scroll smoothly when URL changes
-  const scrollToSection = (id) => {
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        console.warn(`Section "${id}" not found.`);
-      }
-    }, 500); // Slight delay ensures React fully renders sections
-  };
-
-  // Scroll when page reloads or URL changes manually
-  useEffect(() => {
-    const sectionId = location.pathname.replace("/", "");
-    if (sectionId) {
-      scrollToSection(sectionId);
-    }
-  }, [location.pathname]);
-
-  // Handle menu click navigation
-  const handleNavigate = (id) => {
-    navigate(`/${id}`); // Update URL
-    setMenuOpen(false);
-    scrollToSection(id); // Scroll smoothly
-  };
 
   return (
     <header className="p-4 bg-primary text-teritory fixed top-0 left-0 w-full z-50 shadow-lg">
       <div className="container flex justify-between h-16 mx-auto">
         {/* Logo */}
         <div className="flex items-center p-2">
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer text-lg font-bold"
-            onClick={() => handleNavigate("home")}
-          >
+          <Link to="/" className="cursor-pointer text-lg font-bold">
             <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-auto" />
-          </ScrollLink>
+          </Link>
         </div>
 
         {/* Hamburger Button */}
@@ -79,23 +43,21 @@ const NavBar = () => {
           </svg>
         </button>
 
-        {/* Unified Menu */}
+        {/* Navigation Menu */}
         <ul
           className={`${
             menuOpen ? "flex" : "hidden"
           } md:flex flex-col md:flex-row md:items-stretch space-y-3 md:space-y-0 md:space-x-3 absolute md:static top-16 left-0 w-full md:w-auto bg-primary md:bg-transparent md:top-0 p-4 md:p-0`}
         >
           {menuItems.map((item) => (
-            <li key={item.id} className="flex">
-              <ScrollLink
-                to={item.id}
-                smooth={true}
-                duration={500}
+            <li key={item.path} className="flex">
+              <Link
+                to={item.path}
                 className="block w-full px-4 py-4 cursor-pointer hover:text-heading hover-animated-border"
-                onClick={() => handleNavigate(item.id)}
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
-              </ScrollLink>
+              </Link>
             </li>
           ))}
         </ul>

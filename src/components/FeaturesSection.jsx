@@ -6,23 +6,23 @@ import image5 from "../assets/images/image5.webp";
 const featureData = [
   {
     img: image3,
-    bgColor: "bg-heading",
-    textColor: "text-primary",
-    buttonHover: "hover:bg-primary hover:text-heading",
+    bgColor: "bg-primary",
+    textColor: "text-heading",
+    buttonHover: "hover:bg-heading hover:text-primary",
     quote: "Harness the power of the sun and take control of your energy future.",
   },
   {
     img: image4,
-    bgColor: "bg-primary",
-    textColor: "text-heading",
-    buttonHover: "hover:bg-heading hover:text-primary",
+    bgColor: "bg-heading",
+    textColor: "text-primary",
+    buttonHover: "hover:bg-primary hover:text-heading",
     quote: "Solar energy: The investment that pays for itself and the planet.",
   },
   {
     img: image5,
-    bgColor: "bg-heading",
-    textColor: "text-primary",
-    buttonHover: "hover:bg-primary hover:text-heading",
+    bgColor: "bg-primary",
+    textColor: "text-heading",
+    buttonHover: "hover:bg-heading hover:text-primary",
     quote: "Go solar today and shine brighter for generations to come.",
   },
 ];

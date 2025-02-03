@@ -9,6 +9,7 @@ import AboutUs from "./components/AboutUs";
 import CompaniesSection from "./components/CompaniesSection";
 import LazyLoader from "./components/LazyLoader";
 import FormSection from "./components/FormSection";
+import AutoScroll from "./components/AutoScroll";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div className="bg-secondary text-white">
         <NavBar />
         <ScrollUp />
+        <AutoScroll />
 
         <Routes>
           {/* Main Home Page */}

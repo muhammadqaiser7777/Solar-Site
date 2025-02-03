@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import image3 from "../assets/images/image3.webp";
 import image4 from "../assets/images/image4.webp";
 import image5 from "../assets/images/image5.webp";
@@ -28,6 +29,7 @@ const featureData = [
 ];
 
 const FeaturesSection = memo(() => {
+  
   return (
     <section className="p-4 lg:p-8">
       <div className="container mx-auto space-y-10">
@@ -40,6 +42,7 @@ const FeaturesSection = memo(() => {
 });
 
 const FeatureCard = memo(({ feature, index }) => {
+  const navigate = useNavigate();
   return (
     <div
       className={`flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row ${
@@ -54,6 +57,7 @@ const FeatureCard = memo(({ feature, index }) => {
           Switch to solar energy and enjoy clean, cost-effective, and sustainable power for your home or business.
         </p>
         <button
+          onClick={() => navigate("/form")}
           type="button"
           className={`self-start p-3 px-6 border-2 rounded-3xl cursor-pointer transition-all duration-300 ${feature.buttonHover}`}
         >

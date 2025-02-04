@@ -32,11 +32,11 @@ const Footer = () => {
         {/* Logo Section */}
         <div className="lg:w-1/3">
           <ScrollLink
-            to="home"
+            to="/"
             smooth={true}
             duration={500}
             className="flex justify-center space-x-3 lg:justify-start cursor-pointer pl-3"
-            onClick={() => handleNavigate("home")}
+            onClick={() => handleNavigate("")}
           >
             <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24 " />
           </ScrollLink>

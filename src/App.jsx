@@ -10,6 +10,8 @@ import CompaniesSection from "./components/CompaniesSection";
 import LazyLoader from "./components/LazyLoader";
 import FormSection from "./components/FormSection";
 import AutoScroll from "./components/AutoScroll";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import UserTerms from "./components/UserTerms";
 
 function App() {
   return (
@@ -58,6 +60,22 @@ function App() {
             element={
               <div className="min-h-screen pt-24">
                 <Contact />
+              </div>
+            }
+          />
+           <Route
+            path="/privacy-policy"
+            element={
+              <div className="min-h-screen pt-10">
+                <PrivacyPolicy />
+              </div>
+            }
+          />
+           <Route
+            path="/user-terms"
+            element={
+              <div className="min-h-screen pt-10">
+                <UserTerms />
               </div>
             }
           />

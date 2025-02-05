@@ -69,12 +69,12 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
-                <a rel="noopener noreferrer" className="hover:text-heading" href="#">
+                <a rel="noopener noreferrer" className="hover:text-heading" href="/privacy-policy">
                   Privacy
                 </a>
               </li>
               <li>
-                <a rel="noopener noreferrer" className="hover:text-heading" href="#">
+                <a rel="noopener noreferrer" className="hover:text-heading" href="/user-terms">
                   Terms of Service
                 </a>
               </li>

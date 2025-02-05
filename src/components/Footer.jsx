@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import footerBg from "../assets/images/footer-img.jpg";
@@ -40,13 +41,17 @@ const Footer = () => {
           >
             <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24 " />
           </ScrollLink>
-          <h1 className="font-bold text-2xl ">Solar Solutions, <span className="text-heading">Made Simple.</span></h1>
+          <h1 className="font-bold text-2xl ">
+            Solar Solutions, <span className="text-heading">Made Simple.</span>
+          </h1>
         </div>
 
         {/* Footer Links */}
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-heading hover-animation hover:text-tertiary">Quick Links</h3>
+            <h3 className="tracking-wide uppercase text-heading hover-animation hover:text-tertiary">
+              Quick Links
+            </h3>
             <ul className="space-y-1">
               {footerLinks.map((link) => (
                 <li key={link.id}>
@@ -69,19 +74,21 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
-                <a rel="noopener noreferrer" className="hover:text-heading" href="/privacy-policy">
+                <Link to="/privacy-policy" className="hover:text-heading">
                   Privacy
-                </a>
+                </Link>
               </li>
               <li>
-                <a rel="noopener noreferrer" className="hover:text-heading" href="/user-terms">
+                <Link to="/user-terms" className="hover:text-heading">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-3 ">
-            <div className="uppercase text-heading hover-animation hover:text-tertiary">Social media</div>
+            <div className="uppercase text-heading hover-animation hover:text-tertiary">
+              Social media
+            </div>
             <div className="flex justify-start space-x-3">
               <a
                 rel="noopener noreferrer"

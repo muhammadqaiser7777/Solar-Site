@@ -103,75 +103,47 @@ const FormSection = () => {
   const [errors, setErrors] = useState({});
 
   const fields = [
-    {
-      id: "currencyBill",
-      label: "How much is your currency bill?",
-      type: "select",
-      options: ["50$", "100$", "200$"],
-    },
-    {
-      id: "sunExposure",
-      label: "How much sun hits your roof?",
-      type: "select",
-      options: ["Full Sun", "Not Sure"],
-    },
-    {
-      id: "energyProvider",
-      label: "Who is your energy provider?",
-      type: "select",
-      options: ["Unsure/Not Listed", "Alabama Power"],
-    },
-    { id: "firstName", label: "First Name", type: "text" },
-    { id: "lastName", label: "Last Name", type: "text" },
-    { id: "email", label: "Email", type: "email" },
-    { id: "phone", label: "Phone Number", type: "tel" },
-    { id: "address", label: "Address", type: "text" },
-    { id: "city", label: "City", type: "text" },
-    {
-      id: "state",
-      label: "State",
-      type: "select",
-      options: ["Alabama", "Alaska", "Arizona"],
-    },
-    { id: "zipCode", label: "Zip Code", type: "text" },
-    {
-      id: "homeOwner",
-      label: "Home Owner",
-      type: "select",
-      options: ["Yes", "No"],
-    },
-    {
-      id: "propertyType",
-      label: "Property Type",
-      type: "select",
-      options: ["Commercial", "Multinational"],
-    },
-    {
-      id: "purchaseTimeFrame",
-      label: "Purchase Time Frame",
-      type: "select",
-      options: ["1-2 weeks", "2-3 weeks"],
-    },
-    {
-      id: "bestTimeToCall",
-      label: "Best Time to Call",
-      type: "select",
-      options: ["Any Time", "Morning"],
-    },
-    {
-      id: "serviceRequirements",
-      label: "Tell us about your service requirements in brief",
-      type: "textarea",
-    },
-    { id: "agreement", label: "I agree to the terms", type: "checkbox" },
+    [
+      { id: "currencyBill", label: "How much is your current bill?", type: "select", options: ["50$", "100$", "200$"] },
+      { id: "sunExposure", label: "How much sun hits your roof?", type: "select", options: ["Full Sun", "Not Sure"] },
+    ],
+    [{ id: "energyProvider", label: "Who is your energy provider?", type: "select", options: ["Unsure/Not Listed", "Alabama Power"] }],
+    [
+      { id: "firstName", label: "First Name", type: "text" },
+      { id: "lastName", label: "Last Name", type: "text" },
+    ],
+    [
+      { id: "email", label: "Email", type: "email" },
+      { id: "phone", label: "Phone Number", type: "tel" },
+    ],
+    [
+      { id: "address", label: "Address", type: "text" },
+      { id: "city", label: "City", type: "text" },
+    ],
+    [
+      { id: "state", label: "State", type: "select", options: ["Alabama", "Alaska", "Arizona"] },
+      { id: "zipCode", label: "Zip Code", type: "text" },
+    ],
+    [
+      { id: "homeOwner", label: "Home Owner", type: "select", options: ["Yes", "No"] },
+      { id: "propertyType", label: "Property Type", type: "select", options: ["Commercial", "Multinational"] },
+    ],
+    [
+      { id: "purchaseTimeFrame", label: "Purchase Time Frame", type: "select", options: ["1-2 weeks", "2-3 weeks"] },
+      { id: "bestTimeToCall", label: "Best Time to Call", type: "select", options: ["Any Time", "Morning"] },
+    ],
+    [
+      { id: "serviceRequirements", label: "Brief Explanation", type: "textarea" },
+      { id: "agreement", label: "I agree to the terms", type: "checkbox" },
+    ],
   ];
 
-  const totalSteps = Math.ceil(fields.length / 2);
-  const progressPercentage = ((totalSteps - currentStep) / totalSteps) * 100;
+  const totalSteps = fields.length;
+  const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
 
   const validateFields = () => {
     let newErrors = {};
-    fields.slice(currentStep, currentStep + 2).forEach((field) => {
+    fields[currentStep].forEach((field) => {
       if (!formData[field.id]) {
         newErrors[field.id] = "This field is required";
       }
@@ -198,13 +170,18 @@ const FormSection = () => {
   };
 
   const handleNext = () => {
+    console.log("Current Step:", currentStep);
     if (validateFields()) {
-      if (currentStep < fields.length - 2) setCurrentStep((prev) => prev + 2);
+      if (currentStep < totalSteps - 1) {
+        setCurrentStep(currentStep + 1);
+      }
     }
   };
 
   const handlePrevious = () => {
-    if (currentStep > 0) setCurrentStep((prev) => prev - 2);
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -265,7 +242,7 @@ const FormSection = () => {
           ></div>
         </div>
         <form onSubmit={handleSubmit}>
-          {fields.slice(currentStep, currentStep + 2).map((field) => (
+          {fields[currentStep].map((field) => (
             <div key={field.id} className="mb-6">
               <label htmlFor={field.id} className="block font-medium mb-2">
                 {field.label}
@@ -292,7 +269,7 @@ const FormSection = () => {
                   name={field.id}
                   value={formData[field.id]}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   required
                 />
               ) : field.type === "checkbox" ? (
@@ -334,7 +311,7 @@ const FormSection = () => {
                 Previous
               </button>
             )}
-            {currentStep < fields.length - 2 ? (
+            {currentStep < fields.length - 1 ? (
               <button
                 type="button"
                 onClick={handleNext}

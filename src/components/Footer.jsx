@@ -83,6 +83,11 @@ const Footer = () => {
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <Link to="/california-privacy" className="hover:text-heading">
+                  California Privacy
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="space-y-3 ">

@@ -12,6 +12,7 @@ import FormSection from "./components/FormSection";
 import AutoScroll from "./components/AutoScroll";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import UserTerms from "./components/UserTerms";
+import CaliforniaPrivacyNotice from "./components/CaliforniaPrivacyNotice";
 
 function App() {
   return (
@@ -76,6 +77,14 @@ function App() {
             element={
               <div className="min-h-screen pt-10">
                 <UserTerms />
+              </div>
+            }
+          />
+           <Route
+            path="/california-privacy"
+            element={
+              <div className="min-h-screen pt-10">
+                <CaliforniaPrivacyNotice />
               </div>
             }
           />

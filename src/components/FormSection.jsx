@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import formImage from "../assets/images/solar2.jpg";
+import formImage from "../assets/images/solar2.webp";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FormSection = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     currencyBill: "",
     sunExposure: "",
@@ -56,7 +59,9 @@ const FormSection = () => {
   }, []);
 
   useEffect(() => {
-    if (!document.querySelector("script[src*='trustedform.com/trustedform.js']")) {
+    if (
+      !document.querySelector("script[src*='trustedform.com/trustedform.js']")
+    ) {
       const trustedFormScript = document.createElement("script");
       trustedFormScript.type = "text/javascript";
       trustedFormScript.async = true;
@@ -68,7 +73,6 @@ const FormSection = () => {
       document.body.appendChild(trustedFormScript);
     }
   }, []);
-  
 
   useEffect(() => {
     if (!document.getElementById("LeadiDscript_campaign")) {
@@ -104,10 +108,433 @@ const FormSection = () => {
 
   const fields = [
     [
-      { id: "currencyBill", label: "How much is your current bill?", type: "select", options: ["50$", "100$", "200$"] },
-      { id: "sunExposure", label: "How much sun hits your roof?", type: "select", options: ["Full Sun", "Not Sure"] },
+      {
+        id: "currencyBill",
+        label: "How much is your current bill?",
+        type: "select",
+        options: [
+          "50$",
+          "100$",
+          "200$",
+          "300$",
+          "400$",
+          "500$",
+          "600$",
+          "700$",
+          "800$",
+          "More than 900$",
+        ],
+      },
+      {
+        id: "sunExposure",
+        label: "How much sun hits your roof?",
+        type: "select",
+        options: ["Full sun", "Partially shaded", "Mostly shaded", "Not sure"],
+      },
     ],
-    [{ id: "energyProvider", label: "Who is your energy provider?", type: "select", options: ["Unsure/Not Listed", "Alabama Power"] }],
+    [
+      {
+        id: "energyProvider",
+        label: "Who is your energy provider?",
+        type: "select",
+        options: [
+          "Unsure/Not Listed",
+          "Alabama Power",
+          "Alameda Municipal Power",
+          "Alaska Villages Electric Cooperative",
+          "Allegheny Power",
+          "Alliant Energy",
+          "Ambit Enery",
+          "Anaheim Public Utilities",
+          "Appalachain Power",
+          "Arizona Public Service",
+          "Ashland Electric",
+          "Atlantic City Electric",
+          "Austin Energy",
+          "Avista Utilities",
+          "Azusa Light & Water",
+          "American Electric Power",
+          "Ameren",
+          "APS",
+          "Atlantic City Electric",
+          "Austin Energy",
+          "Avista",
+          "Baltimore Gas & Electric",
+          "Bangor Hydro Electric",
+          "Basin Electric Power Cooperative",
+          "Batavia Municipal Electric",
+          "Bear Valley Electric",
+          "Beauregard Electric CO-OP",
+          "Benton PUD",
+          "Berea Municipal Utilities",
+          "Berkeley Electric Cooperative",
+          "Berkshire Company",
+          "Big Rivers Electric Corporation",
+          "Black Hills Energy",
+          "Black Hills Power",
+          "Blue Grass Energy",
+          "Blue Ridae Eleatical Membershio Corp",
+          "Borough of Ellwood City",
+          "Bounce Energy",
+          "Braintree Electric Light Department",
+          "Brigham City Public Power",
+          "Brunswick EMC",
+          "Bryan Texas Utilities",
+          "Burbank Water & Power",
+          "Caddo Electric Cooperative",
+          "California Public Utilities Commission",
+          "Calpine",
+          "Canby Electric",
+          "Carteret-Craven Electric Cooperative",
+          "CenterPoint Energy",
+          "Central Electric Power Cooperative",
+          "Central Hudson Gas & Electric",
+          "Central Maine Power",
+          "Central Montana Electric Power Cooperative",
+          "Central Vermont Public Service",
+          "CH Energy Group",
+          "Champion Energy Services",
+          "Chariton Valley Electric Cooperative",
+          "Chelan County Public Utility District",
+          "Cherokee Electric Cooperative",
+          "Cheyenne Light Fuel & Power",
+          "Choptank Electric Cooperative",
+          "Chugach Electric Association",
+          "Cincinnati Bell Energy",
+          "Cirro Energy",
+          "Citizens Choice Energy Jamestown BPU",
+          "Citizens Electric of Lewisburg",
+          "Citizens Utilities Board",
+          "City & County of San Francisco",
+          "City of Dover Electric Department",
+          "City of Milford Electric Department",
+          "City of Palo Alto Utilities",
+          "City of Rock Hill",
+          "City of Safford Electric Department",
+          "City of Tallahassee Utilities",
+          "City of Vero Beach",
+          "City Utilities of Springfield",
+          "Claverack REC",
+          "Clay Electric Co-op",
+          "Clearwater Power",
+          "CLECO",
+          "Cleveland Electric Illuminating Company",
+          "Coast Electric",
+          "College Station Utilities",
+          "Colorado Springs Utilities",
+          "Colton Public Utilities Glendale Public Service Department",
+          "Columbia REA",
+          "Columbia River Public Utility District",
+          "ComEd Electric Company",
+          "Connecticut Light & Power",
+          "Connecticut Natural Gas",
+          "Consolidated Edison Company of New York (Con Edison)",
+          "Consolidated Electric Cooperative",
+          "Consumers Energy",
+          "Copper Valley Electric Association",
+          "Coserv Electric",
+          "Coweta Fayette EMC",
+          "CPS Energy",
+          "Dairyland Power Co-op",
+          "Danville Utilities",
+          "Dayton Power & Light",
+          "Delaware Electric Cooperative",
+          "Delmarva Power",
+          "DEMCO",
+          "Denton Municipal Electric",
+          "Direct Energy",
+          "Dominion Virginia Power",
+          "Douglas County Public Utility District dPi Energy",
+          "DTE Energy (Detroit Edison)",
+          "Duke Energy",
+          "Duke Energy Indiana",
+          "Duke Energy Kentucky",
+          "Duke Energy NC",
+          "Duke Energy Ohio",
+          "Duke Energy SC",
+          "Duncan Valley Electric Cooperative",
+          "Duquesne Light",
+          "East River Electric Cooperative",
+          "East River Electric Power Co-op",
+          "Eau Claire Energy Cooperative",
+          "El Paso Electric",
+          "Electric Database Publishing",
+          "Electric Power Board",
+          "Electrical District No. 2",
+          "ElectriCities",
+          "Emerald PUD",
+          "Empire District Electric Company",
+          "Entergy",
+          "Entrust Energy",
+          "Eugene Water & Electric Board",
+          "Everything Energy",
+          "Excel Energy",
+          "Farmers Electrical Cooperative",
+          "Farmington Electric Utility System",
+          "First Electric Cooperative",
+          "First Texas Energy Corporation",
+          "FirstEnergy",
+          "Fleming-Mason Energy Cooperative",
+          "Flint Energies",
+          "Florida Municipal Power Agency",
+          "Florida Power & Light",
+          "Florida Public Utility Company Palm Beach",
+          "Gainesville Regional Utilities",
+          "Garland Power and Light",
+          "Georgetown Utility Services (GUS)",
+          "Georgia EMC",
+          "Georgia Power",
+          "Gexa Energy",
+          "Golden Valley Electric Association",
+          "Granite State Electric",
+          "Grant County Public Utility District",
+          "Great River Energy",
+          "Green Island Power Authority",
+          "Green Mountain Energy",
+          "Green Mountain Power",
+          "Gridley Municipal Utilities",
+          "Guadalupe Valley Electric Cooperative",
+          "Gulf Power",
+          "GVEC",
+          "Halifax Electric Membership",
+          "Hawaiian Electric Company (HECO)",
+          "Hawaiian Electric Industries",
+          "Healdsburg Municipal Electric Department",
+          "Henderson Municipal Power and Light",
+          "High Plains Power",
+          "High West Energy",
+          "Highline Electric Association",
+          "Holden Municipal Light Department",
+          "Holland Board of Public Works",
+          "Holy Cross Energy Company",
+          "Howard Electric Cooperative",
+          "Hutchinson Utilities Commission",
+          "Hyrum City Power & Light",
+          "IDACORP",
+          "Idaho Power",
+          "Imperial Irrigation District",
+          "Independence Power and Light",
+          "Indianapolis Power & Light",
+          "Intermountain Power Agency",
+          "Intermountain Rural Electric Association",
+          "International Electric Power (IEP)",
+          "Interstate Power and Light Company",
+          "ITC Midwest",
+          "Jackson",
+          "JEA",
+          "Jersey Central Power and Light Company",
+          "Jones-Onslow EMC",
+          "Just Energy",
+          "Kansas City Board of Public Utilities",
+          "Kansas City Power & Light",
+          "Kauai Island Utility Cooperative (KIUC)",
+          "Kaysville City",
+          "Kenergy Corp",
+          "Kentucky Utilities",
+          "Kingsport Power (Appalachian Power)",
+          "Kissimmee Utility Authority",
+          "Klickitat Public Utility District",
+          "Knoxville Utilities Board",
+          "Kodiak Electric Association",
+          "L&O Power Co-op",
+          "La Plata Electric Association",
+          "Lafayette Utilities System",
+          "Lake Country Power",
+          "Lake Worth Utilities",
+          "Lakeland Electric",
+          "Lamar Light and Power",
+          "Lansing Board of Water & Light",
+          "LCEC",
+          "Lenoir City Utilities Board",
+          "Little River Electric Co-Op",
+          "Lodi Electric Utility",
+          "Long Island Power Authority (LIPA)",
+          "Lorain Medina Rural Electric Cooperative",
+          "Los Angeles Department of Water and Power",
+          "Louisville Gas & Electric",
+          "Lower Colorado River Authority",
+          "Lower Valley Energy",
+          "Lumbee River EMC",
+          "Luminant",
+          "Madison Gas and Electric",
+          "Magic Valley",
+          "Magnolia Electric",
+          "Mansfield Municipal Electric",
+          "Marblehead Electric Light Department",
+          "Marshall Municipal Utilities",
+          "Mason County Public Utility District 3",
+          "Massachusetts Electric",
+          "Massachusetts Municipal Wholesale Electric Company (MMWEC)",
+          "Massena Electric Department",
+          "Maui Electric Company",
+          "MDU",
+          "Memphis Light Gas and Water",
+          "Met-Ed",
+          "MidAmerican Energy",
+          "Midwest Energy",
+          "Minnesota Power",
+          "Minnkota Power Cooperative",
+          "Mississippi Power Company",
+          "Missouri River Energy Services",
+          "Modesto Irrigation District",
+          "Mojave Electric Cooperative",
+          "Montana Electric Cooperatives' Association",
+          "Montana-Dakota Utilities",
+          "Mountain Utilities",
+          "Municipal Light & Power",
+          "Nantucket Electric",
+          "Narragansett Electric",
+          "Nashville Electric Service",
+          "National Grid",
+          "Navopache Electric Cooperative",
+          "Nebraska Public Power District",
+          "Nevada Power",
+          "New York Power Authority (NYPA)",
+          "New York State Electric & Gas (NYSEG)",
+          "New-Mac Electric",
+          "Norris Electric Cooperative",
+          "North Carolina Electric Membership Corp.",
+          "North Little Rock Electric",
+          "Northeast Utilities",
+          "Northern Indiana Public Service Company",
+          "Northern Neck Electric Cooperative",
+          "Northwestern Energy",
+          "NOVEC",
+          "NRG Energy",
+          "NSTAR",
+          "NV Energy",
+          "Ocala Electric",
+          "Ohio Edison",
+          "Oklahoma Gas & Electric",
+          "Omaha Public Power District",
+          "Oncor Electric (Formerly TXU)",
+          "Orange & Rockland",
+          "Orlando Utilities Commission",
+          "Otter Tail Power Company",
+          "Overton Power District No 5",
+          "Owensboro Municipal Utilities",
+          "Pacific Gas & Electric",
+          "PacifiCorp",
+          "PacifiCorp (Pacific Power)",
+          "PacifiCorp (Rocky Mountain Power)",
+          "Pasadena Water & Power",
+          "Peabody Municipal Light Plant",
+          "PECO",
+          "Pedernales Electric Cooperative",
+          "Penelec",
+          "Penn Power",
+          "People",
+          "PEPCO",
+          "Pike County Light & Power Company",
+          "Portland General Electric",
+          "Potomoc Edison (FirstEnergy)",
+          "PowerSouth Energy Cooperative",
+          "PPL",
+          "Progress Energy Carolinas",
+          "Progress Energy Florida",
+          "Public Service Company of New Mexico Public Service Company of Oklahoma",
+          "Public Service Electric and Gas Company (PSE&G)",
+          "Public Service of NH",
+          "Puget Sound Energy",
+          "PWC Fayetteville",
+          "Randolph Electric Membership Corp",
+          "Rappahannock Electric Cooperative",
+          "Redding Electric Utility (REU)",
+          "Reliant Energy",
+          "River Falls Municipal Utility",
+          "Riverside Public Utilities",
+          "Rochester Gas & Electric",
+          "Rochester Public Utilities",
+          "Rural Valley Electric Co.",
+          "Rushmore Electric Cooperative",
+          "Sacramento Municipal Utility District",
+          "Salem Electric",
+          "Salt River Electric",
+          "Salt River Project",
+          "Sam Houston Electric",
+          "San Diego Gas & Electric",
+          "Santee Cooper",
+          "Sawnee EMC",
+          "Seattle City Light",
+          "SELCO",
+          "Shenandoah Valley Electric Cooperative",
+          "Sierra Pacific Power",
+          "Sierra-Pacific Power",
+          "Silicon Valley Power",
+          "SLECMO",
+          "Snohomish County Public Utility District (PUD)",
+          "Source Power and Gas",
+          "South Carolina Electric & Gas Company",
+          "South Central Power Company",
+          "Southern California Edison",
+          "Southern California Public Power Authority",
+          "Southern Maryland Electric Cooperative",
+          "Southern Rivers Energy",
+          "Southwest Mississippi Electric Power Association",
+          "Southwestern Electric Power Company (SWEPCO)",
+          "Springfield City Water Light & Power",
+          "Star Tex Power",
+          "Sterling Municipal Light Department",
+          "Stream Energy",
+          "Sulphur Springs Valley Electric Cooperative",
+          "Summer Energy",
+          "Superior Plus Utility",
+          "Surprise Valley Power",
+          "Sussex Rural Electric Cooperative",
+          "SWEPCO",
+          "Tacoma Power",
+          "Tara Energy",
+          "TECO",
+          "Tennessee Jackson Energy Authority",
+          "Tennessee Valley Authority",
+          "Texas Electric Service Company",
+          "Tideland EMC",
+          "Tillamook PUD",
+          "Toledo Edison",
+          "Town of Vienna",
+          "Tri Eagle Energy",
+          "Trico Electric Cooperative",
+          "Tri-County Electric",
+          "Trinity PUD",
+          "Trinity Valley Electric Cooperative",
+          "Tucson Electric Power",
+          "Turlock Irrigation District (TID)",
+          "UGI Utilities",
+          "UniSource Energy Services",
+          "United Cooperative Services",
+          "United Illuminating",
+          "United Power Inc",
+          "Unitil Corporation",
+          "Upper Missouri G&T Cooperative",
+          "Upper Peninsula Power Company",
+          "Valley Electric Association",
+          "Vernon Light & Power",
+          "Vineland Municipal Electric Utility",
+          "Wake Electric",
+          "Wakefield Municipal Gas and Light Department",
+          "Wallingford Electric",
+          "Wasco Electric",
+          "Washington - St. Tammany Electric Cooperative",
+          "We Energies",
+          "Weakley County Municipal Electric System",
+          "Wellsboro Electric Company",
+          "West Oregon Electric Cooperative",
+          "Westar Energy",
+          "Western Massachusetts Electric",
+          "Wheeling Electric Power (AEP Ohio)",
+          "Wilson Energy",
+          "Wiregrass Electric Cooperative",
+          "Wisconsin Power and Light Company",
+          "Wisconsin Public Service Corporation",
+          "Withlacoochee River Electric Cooperative",
+          "WTU Retail Energy",
+          "Wyandotte Municipal Services",
+          "XOOM Energy",
+          "Xcel Energy",
+          "Other",
+        ],
+      },
+    ],
     [
       { id: "firstName", label: "First Name", type: "text" },
       { id: "lastName", label: "Last Name", type: "text" },
@@ -121,20 +548,106 @@ const FormSection = () => {
       { id: "city", label: "City", type: "text" },
     ],
     [
-      { id: "state", label: "State", type: "select", options: ["Alabama", "Alaska", "Arizona"] },
+      {
+        id: "state",
+        label: "State",
+        type: "select",
+        options: [
+          "Alabama",
+          "Alaska",
+          "Arizona",
+          "Arkansas",
+          "California",
+          "Colorado",
+          "Connecticut",
+          "Delaware",
+          "Florida",
+          "Georgia",
+          "Hawaii",
+          "Idaho",
+          "Illinois",
+          "Indiana",
+          "Iowa",
+          "Kansas",
+          "Kentucky",
+          "Louisiana",
+          "Maine",
+          "Maryland",
+          "Massachusetts",
+          "Michigan",
+          "Minnesota",
+          "Mississippi",
+          "Missouri",
+          "Montana",
+          "Nebraska",
+          "Nevada",
+          "New Hampshire",
+          "New Jersey",
+          "New Mexico",
+          "New York",
+          "North Carolina",
+          "North Dakota",
+          "Ohio",
+          "Oklahoma",
+          "Oregon",
+          "Pennsylvania",
+          "Rhode Island",
+          "South Carolina",
+          "South Dakota",
+          "Tennessee",
+          "Texas",
+          "Utah",
+          "Vermont",
+          "Virginia",
+          "Washington",
+          "West Virginia",
+          "Wisconsin",
+          "Wyoming",
+        ],
+      },
       { id: "zipCode", label: "Zip Code", type: "text" },
     ],
     [
-      { id: "homeOwner", label: "Home Owner", type: "select", options: ["Yes", "No"] },
-      { id: "propertyType", label: "Property Type", type: "select", options: ["Commercial", "Multinational"] },
+      {
+        id: "homeOwner",
+        label: "Home Owner",
+        type: "select",
+        options: ["Yes", "No"],
+      },
+      {
+        id: "propertyType",
+        label: "Property Type",
+        type: "select",
+        options: ["Commercial", "Multinational","Residential"],
+      },
     ],
     [
-      { id: "purchaseTimeFrame", label: "Purchase Time Frame", type: "select", options: ["1-2 weeks", "2-3 weeks"] },
-      { id: "bestTimeToCall", label: "Best Time to Call", type: "select", options: ["Any Time", "Morning"] },
+      {
+        id: "purchaseTimeFrame",
+        label: "Purchase Time Frame",
+        type: "select",
+        options: [
+          "1-2 weeks",
+          "3-4 weeks",
+          "5-6 weeks",
+          "7-8 weeks",
+          "Time is flexible",
+        ],
+      },
+      {
+        id: "bestTimeToCall",
+        label: "Best Time to Call",
+        type: "select",
+        options: ["Any Time", "Morning","Afternoon","Evening"],
+      },
     ],
     [
-      { id: "serviceRequirements", label: "Brief Explanation", type: "textarea" },
-      { id: "agreement", label: "I agree to the terms", type: "checkbox" },
+      {
+        id: "serviceRequirements",
+        label: "Brief Explanation",
+        type: "textarea",
+      },
+      { id: "agreement", label: "", type: "checkbox" },
     ],
   ];
 
@@ -184,12 +697,53 @@ const FormSection = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateFields()) {
       console.log("Form submitted:", formData);
-      alert("Form has been submitted successfully!");
+
+      const demoFormData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        category: 1,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zipCode,
+        homeOwner: formData.homeOwner,
+        cabinetsType: formData.serviceRequirements,
+        vid: 1, // Vendor ID
+        leadtype: 2, // Lead type
+        istest: 1, // Test mode
+      };
+
+      // Convert demoFormData to a URL-encoded string
+      const requestBody = new URLSearchParams(demoFormData).toString();
+
+      try {
+        const response = await fetch(
+          "https://usasolars.com/proxy.php", // PHP Proxy URL
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: requestBody,
+          }
+        );
+
+        const responseText = await response.text();
+        // alert("Server response: " + responseText);
+      } catch (error) {
+        console.error("Error submitting demo form:", error);
+        alert("There was an error submitting the form. Please try again.");
+      }
+
+      // Reset form data while keeping tracking parameters
       setFormData({
+        ...formData,
         currencyBill: "",
         sunExposure: "",
         energyProvider: "",
@@ -207,15 +761,8 @@ const FormSection = () => {
         bestTimeToCall: "",
         serviceRequirements: "",
         agreement: false,
-        affid: formData.affid,
-        rid: formData.rid,
-        tid: formData.tid,
-        url: formData.url,
-        start: formData.start,
-        min: formData.min,
-        ipAddress: formData.ipAddress,
-        userAgent: formData.userAgent,
       });
+      navigate("/thank-you");
       setCurrentStep(0);
     }
   };
@@ -251,8 +798,33 @@ const FormSection = () => {
                 <select
                   id={field.id}
                   name={field.id}
-                  value={formData[field.id]}
-                  onChange={handleChange}
+                  value={
+                    field.id === "homeOwner"
+                      ? formData[field.id] === 1
+                        ? "Yes"
+                        : formData[field.id] === 2
+                        ? "No"
+                        : ""
+                      : formData[field.id] || ""
+                  }
+                  onChange={(e) => {
+                    let selectedValue = e.target.value;
+
+                    // Convert "Yes" -> 1 and "No" -> 2 for homeOwner field
+                    if (field.id === "homeOwner") {
+                      selectedValue =
+                        selectedValue === "Yes"
+                          ? 1
+                          : selectedValue === "No"
+                          ? 2
+                          : "";
+                    }
+
+                    setFormData({
+                      ...formData,
+                      [field.id]: selectedValue,
+                    });
+                  }}
                   className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 >
@@ -282,7 +854,8 @@ const FormSection = () => {
                     onChange={handleChange}
                     className="mr-2"
                   />
-                  <label htmlFor={field.id}>{field.label}</label>
+                  <label htmlFor={field.id}>
+                  By clicking, I agree to the <Link to="/user-terms" className="underline text-blue-700">Terms of Service</Link>  and <Link className="underline text-blue-700" to="/privacy-policy">Privacy Policy</Link>  , I authorize home improvement companies, their contractors, and partner companies to contact me about home improvement offers by phone calls and text messages to the number I provided. I authorize that these marketing communications may be delivered to me using an automatic telephone dialing system or by prerecorded message. I understand that my consent is not a condition of purchase, and I may revoke that consent at any time. Mobile and data charges may apply. California Residents.</label>
                 </div>
               ) : (
                 <input
@@ -306,7 +879,7 @@ const FormSection = () => {
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="px-5 py-3 bg-gray-300 text-black rounded-lg shadow-md hover:bg-gray-400"
+                className="px-5 py-3 bg-gray-300 text-black rounded-lg shadow-md hover:bg-gray-400 cursor-pointer"
               >
                 Previous
               </button>
@@ -315,14 +888,14 @@ const FormSection = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-5 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-tertiary hover:text-primary"
+                className="px-5 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-tertiary hover:text-primary cursor-pointer"
               >
                 Next
               </button>
             ) : (
               <button
                 type="submit"
-                className="px-5 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600"
+                className="px-5 py-3 bg-primary text-white rounded-lg shadow-md cursor-pointer"
               >
                 Submit
               </button>

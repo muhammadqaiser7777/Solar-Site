@@ -1,38 +1,27 @@
-import React from 'react'
+import React, { memo } from "react";
 
-const CompaniesSection = () => {
+const stats = [
+  { value: "100+", label: "Clients" },
+  { value: "89K", label: "Followers on social media" },
+  { value: "3", label: "Published books" },
+  { value: "8", label: "TED talks" },
+  { value: "22", label: "Years of experience" },
+  { value: "10+", label: "Workshops" },
+];
+
+const CompaniesSection = memo(() => {
   return (
-    <div>
-      <section className="p-6 bg-heading text-primary">
-	<div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">100+</p>
-			<p className="text-sm sm:text-base">Clients</p>
-		</div>
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">89K</p>
-			<p className="text-sm sm:text-base">Followers on social media</p>
-		</div>
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">3</p>
-			<p className="text-sm sm:text-base">Published books</p>
-		</div>
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">8</p>
-			<p className="text-sm sm:text-base">TED talks</p>
-		</div>
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">22</p>
-			<p className="text-sm sm:text-base">Years of experience</p>
-		</div>
-		<div className="flex flex-col justify-start m-2 lg:m-6">
-			<p className="text-4xl font-bold leading-none lg:text-6xl">10+</p>
-			<p className="text-sm sm:text-base">Workshops</p>
-		</div>
-	</div>
-</section>
-    </div>
-  )
-}
+    <section className="p-6 bg-heading text-primary">
+      <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
+        {stats.map((stat, index) => (
+          <div key={index} className="flex flex-col justify-start m-2 lg:m-6">
+            <p className="text-4xl font-bold leading-none lg:text-6xl">{stat.value}</p>
+            <p className="text-sm sm:text-base">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+});
 
-export default CompaniesSection
+export default CompaniesSection;

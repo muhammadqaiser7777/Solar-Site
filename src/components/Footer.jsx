@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
-import footerBg from "../assets/images/footer-img.jpg";
+import footerBg from "../assets/images/footer-img.webp";
 import Logo from "../assets/images/logo.png";
 
 const Footer = () => {
@@ -13,7 +13,6 @@ const Footer = () => {
   };
 
   const footerLinks = [
-    { id: "/", label: "Home" },
     { id: "contact", label: "Contact Us" },
     { id: "about", label: "About Us" },
     { id: "form", label: "Get Quote" },
@@ -36,11 +35,12 @@ const Footer = () => {
             to="/"
             smooth={true}
             duration={500}
-            className="flex justify-center space-x-3 lg:justify-start cursor-pointer pl-3"
+            className="flex justify-start lg:justify-start cursor-pointer pl-3"
             onClick={() => handleNavigate("")}
           >
-            <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24 " />
+            <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24" />
           </ScrollLink>
+
           <h1 className="font-bold text-2xl ">
             Solar Solutions, <span className="text-heading">Made Simple.</span>
           </h1>
@@ -144,7 +144,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="py-6 text-sm text-center text-heading">
-        © Solar Site Co. All rights reserved.
+        © USA Solars Co. All rights reserved.
       </div>
     </footer>
   );

@@ -1,35 +1,33 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import image3 from "../assets/images/image3.webp";
-import image4 from "../assets/images/image4.webp";
-import image5 from "../assets/images/image5.webp";
 
-const featureData = [
-  {
-    img: image3,
-    bgColor: "bg-primary",
-    textColor: "text-heading",
-    buttonHover: "hover:bg-heading hover:text-primary",
-    quote: "Harness the power of the sun and take control of your energy future.",
-  },
-  {
-    img: image4,
-    bgColor: "bg-heading",
-    textColor: "text-primary",
-    buttonHover: "hover:bg-primary hover:text-heading",
-    quote: "Solar energy: The investment that pays for itself and the planet.",
-  },
-  {
-    img: image5,
-    bgColor: "bg-primary",
-    textColor: "text-heading",
-    buttonHover: "hover:bg-heading hover:text-primary",
-    quote: "Go solar today and shine brighter for generations to come.",
-  },
-];
 
 const FeaturesSection = memo(() => {
-  
+  // Feature data with image paths
+  const featureData = useMemo(() => [
+    {
+      img: "src/assets/images/image3.webp", // Load from public folder
+      bgColor: "bg-primary",
+      textColor: "text-heading",
+      buttonHover: "hover:bg-heading hover:text-primary",
+      quote: "Harness the power of the sun and take control of your energy future.",
+    },
+    {
+      img: "src/assets/images/image4.webp",
+      bgColor: "bg-heading",
+      textColor: "text-primary",
+      buttonHover: "hover:bg-primary hover:text-heading",
+      quote: "Solar energy: The investment that pays for itself and the planet.",
+    },
+    {
+      img: "src/assets/images/image5.webp",
+      bgColor: "bg-primary",
+      textColor: "text-heading",
+      buttonHover: "hover:bg-heading hover:text-primary",
+      quote: "Go solar today and shine brighter for generations to come.",
+    },
+  ], []);
+
   return (
     <section className="p-4 lg:p-8">
       <div className="container mx-auto space-y-10">
@@ -43,13 +41,22 @@ const FeaturesSection = memo(() => {
 
 const FeatureCard = memo(({ feature, index }) => {
   const navigate = useNavigate();
+
   return (
     <div
       className={`flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row ${
         index % 2 !== 0 ? "lg:flex-row-reverse" : ""
       }`}
     >
-      <img src={feature.img} alt="Solar Tech" className="h-80 aspect-video" loading="lazy" />
+      <img
+        src={feature.img}
+        alt="Solar Tech"
+        className="h-80 aspect-video"
+        width="600"
+        height="320"
+        loading="lazy"
+        decoding="async"
+      />
       <div className={`flex flex-col justify-center flex-1 p-6 ${feature.bgColor} ${feature.textColor}`}>
         <span className="text-xs uppercase">Join, it's free</span>
         <h3 className="text-3xl font-bold">{feature.quote}</h3>

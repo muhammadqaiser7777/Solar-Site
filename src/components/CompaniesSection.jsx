@@ -1,12 +1,12 @@
 import React, { memo } from "react";
 
 const stats = [
-  { value: "100+", label: "Clients" },
-  { value: "89K", label: "Followers on social media" },
-  { value: "3", label: "Published books" },
-  { value: "8", label: "TED talks" },
+  { value: "1000+", label: "Clients" },
+  { value: "10K+", label: "Systems Installed" },
+  { value: "100%", label: "Efficiency" },
+  { value: "300 MW", label: "Annual Production" },
   { value: "22", label: "Years of experience" },
-  { value: "10+", label: "Workshops" },
+  { value: "386 kTonnes", label: "CO2 Reduced" },
 ];
 
 const CompaniesSection = memo(() => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Arrow from "../assets/images/Arrow.png";
+import Arrow from "/assets/images/Arrow.png";
 
 const ScrollUp = () => {
   const [showScroll, setShowScroll] = useState(false);

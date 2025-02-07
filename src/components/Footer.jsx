@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
-import footerBg from "../assets/images/footer-img.webp";
-import Logo from "../assets/images/logo.png";
+import footerBg from "/assets/images/footer-img.webp";
+import Logo from "/assets/images/logo.png";
 
 const Footer = () => {
   const navigate = useNavigate();

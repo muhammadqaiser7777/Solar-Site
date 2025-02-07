@@ -19,7 +19,7 @@ const AboutUs = memo(() => {
           {/* Image Container with Lazy Loading */}
           <div className="lg:w-1/2 w-full flex justify-center aspect-[4/3]">
             <LazyLoadImage
-              src="src/assets/images/About-us.webp" // Loading from public folder
+              src="/assets/images/About-us.webp" // Loading from public folder
               alt="About Us"
               effect="blur"
               className="rounded-lg shadow-lg w-full h-full object-cover"

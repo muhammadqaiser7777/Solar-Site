@@ -6,21 +6,21 @@ const FeaturesSection = memo(() => {
   // Feature data with image paths
   const featureData = useMemo(() => [
     {
-      img: "src/assets/images/image3.webp", // Load from public folder
+      img: "/assets/images/image3.webp", // Load from public folder
       bgColor: "bg-primary",
       textColor: "text-heading",
       buttonHover: "hover:bg-heading hover:text-primary",
       quote: "Harness the power of the sun and take control of your energy future.",
     },
     {
-      img: "src/assets/images/image4.webp",
+      img: "/assets/images/image4.webp",
       bgColor: "bg-heading",
       textColor: "text-primary",
       buttonHover: "hover:bg-primary hover:text-heading",
       quote: "Solar energy: The investment that pays for itself and the planet.",
     },
     {
-      img: "src/assets/images/image5.webp",
+      img: "/assets/images/image5.webp",
       bgColor: "bg-primary",
       textColor: "text-heading",
       buttonHover: "hover:bg-heading hover:text-primary",

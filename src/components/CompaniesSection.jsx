@@ -6,7 +6,7 @@ const stats = [
   { value: "100%", label: "Efficiency" },
   { value: "300 MW", label: "Annual Production" },
   { value: "22", label: "Years of experience" },
-  { value: "386 kTonnes", label: "CO2 Reduced" },
+  { value: "386 KT", label: "CO2 Reduced" },
 ];
 
 const CompaniesSection = memo(() => {

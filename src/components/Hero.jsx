@@ -8,25 +8,25 @@ import "slick-carousel/slick/slick-theme.css";
 const sliderItems = [
   {
     type: "image",
-    src: "src/assets/images/image1.webp",
+    src: "/assets/images/image1.webp",
     alt: "Image 1",
     text: "Install solar panels and reduce your energy bills. Get a quote today!",
   },
   {
     type: "video",
-    src: "src/assets/videos/solar1.mp4",
+    src: "/assets/videos/solar1.mp4",
     alt: "Video 1",
     text: "Custom solar solutions tailored to your needs. Request a free quote!",
   },
   {
     type: "image",
-    src: "src/assets/images/image2.webp",
+    src: "/assets/images/image2.webp",
     alt: "Image 2",
     text: "Keep your solar system running with expert maintenance. Get a quote!",
   },
   {
     type: "video",
-    src: "src/assets/videos/solar2.mp4",
+    src: "/assets/videos/solar2.mp4",
     alt: "Video 2",
     text: "Store excess solar energy for later use. Request a free quote now!",
   },
@@ -41,7 +41,7 @@ const CustomArrow = ({ onClick, direction }) => (
     aria-label={direction === "left" ? "Previous Slide" : "Next Slide"}
   >
     <img
-      src={`src/assets/images/${direction}-arrow.png`}
+      src={`/assets/images/${direction}-arrow.png`}
       alt={direction === "left" ? "Previous" : "Next"}
       className="w-6 h-6 sm:w-10 sm:h-10 hover:scale-110 transition-transform"
       loading="lazy"

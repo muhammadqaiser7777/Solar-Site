@@ -98,10 +98,13 @@
 }
 @layer utilities {
   .hover-animation {
-    @apply transition-all duration-300 hover:scale-105;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   
   img {
-    @apply align-middle; /* Fixes spacing issues */
+    vertical-align: middle; /* Fixes spacing issues */
   }
 }

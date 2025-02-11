@@ -768,18 +768,18 @@ const FormSection = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center  bg-heading text-secondary p-8 md:p-12  shadow-lg">
+    <div className="flex flex-col md:flex-row justify-center items-center bg-white text-secondary p-8 md:p-12 md:pt-0  shadow-lg">
       {/* Left side Image */}
       <div className="hidden md:block w-1/2">
         <img
           src={formImage}
           alt="Solar Panel"
-          className="w-full h-auto rounded-4xl shadow-md"
+          className="w-full h-auto"
         />
       </div>
 
       {/* Right side Form */}
-      <div className="w-full md:w-1/2 p-6">
+      <div className="w-full md:w-1/2 p-6 md:pt-32 rounded-4xl rounded-t-full bg-[#fe9929]">
         <h1 className="text-4xl font-semibold mb-6 text-center">Get a Quote</h1>
         {/* Progress Bar */}
         <div className="w-full bg-gray-300 rounded-full h-3 mb-6">

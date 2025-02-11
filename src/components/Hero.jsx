@@ -7,12 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 // Use public assets instead of importing them directly
 const sliderItems = [
   {
-    type: "image",
-    src: "/assets/images/image1.webp",
-    alt: "Image 1",
-    text: "Install solar panels and reduce your energy bills. Get a quote today!",
-  },
-  {
     type: "video",
     src: "/assets/videos/solar1.mp4",
     alt: "Video 1",
@@ -23,12 +17,6 @@ const sliderItems = [
     src: "/assets/images/image2.webp",
     alt: "Image 2",
     text: "Keep your solar system running with expert maintenance. Get a quote!",
-  },
-  {
-    type: "video",
-    src: "/assets/videos/solar2.mp4",
-    alt: "Video 2",
-    text: "Store excess solar energy for later use. Request a free quote now!",
   },
 ];
 

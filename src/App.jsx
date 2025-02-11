@@ -7,13 +7,14 @@ import ScrollUp from "./components/ScrollUp";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
 import CompaniesSection from "./components/CompaniesSection";
-import LazyLoader from "./components/LazyLoader";
 import FormSection from "./components/FormSection";
 import AutoScroll from "./components/AutoScroll";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import UserTerms from "./components/UserTerms";
 import CaliforniaPrivacyNotice from "./components/CaliforniaPrivacyNotice";
 import ThankYou from "./components/ThankYou";
+import EnergySection from "./components/EnergySection";
+import ServiceTypes from "./components/ServiceTypes";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
                 <div id="home" className="min-h-screen pt-24">
                   <Hero />
                 </div>
-                <LazyLoader />
+                <EnergySection />
+                <ServiceTypes />
                 <div id="companies">
                   <CompaniesSection />
                 </div>

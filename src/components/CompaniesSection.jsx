@@ -16,10 +16,10 @@ const AnimatedNumber = ({ targetValue, suffix }) => {
 
   useEffect(() => {
     if (inView) {
-      let start = Math.floor(targetValue * 0.6); // Start from 60% of final value
+      let start = Math.floor(targetValue * 0.6);
       setCount(start);
 
-      const increment = Math.ceil(targetValue / 100); // Smaller increments for smoother animation
+      const increment = Math.ceil(targetValue / 100);
       const interval = setInterval(() => {
         setCount((prev) => {
           if (prev >= targetValue) {
@@ -28,7 +28,7 @@ const AnimatedNumber = ({ targetValue, suffix }) => {
           }
           return prev + increment;
         });
-      }, 30); // Faster animation
+      }, 30);
 
       return () => clearInterval(interval);
     }
@@ -36,7 +36,8 @@ const AnimatedNumber = ({ targetValue, suffix }) => {
 
   return (
     <span ref={ref} className="animate-fade-in">
-      {count}{suffix}
+      {count}
+      {suffix}
     </span>
   );
 };
@@ -46,7 +47,11 @@ const CompaniesSection = memo(() => {
     <section className="p-6 bg-heading text-primary">
       <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="flex flex-col justify-start m-2 lg:m-6">
+          <div
+            key={index}
+            className="flex flex-col justify-start m-2 lg:m-6 hover:bg-primary transition p-4 rounded-lg cursor-pointer"
+            onMouseEnter={() => console.log("Hover is ON")}
+          >
             <p className="text-4xl font-bold leading-none lg:text-6xl">
               <AnimatedNumber targetValue={stat.value} suffix={stat.suffix} />
             </p>

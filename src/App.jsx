@@ -15,6 +15,7 @@ import CaliforniaPrivacyNotice from "./components/CaliforniaPrivacyNotice";
 import ThankYou from "./components/ThankYou";
 import EnergySection from "./components/EnergySection";
 import ServiceTypes from "./components/ServiceTypes";
+import BulbSection from "./components/BulbSection";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                 </div>
                 <EnergySection />
                 <ServiceTypes />
+                <BulbSection />
                 <div id="companies">
                   <CompaniesSection />
                 </div>

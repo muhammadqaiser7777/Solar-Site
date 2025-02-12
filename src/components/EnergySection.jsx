@@ -48,7 +48,7 @@ const EnergySection = () => {
         </p>
         <button
           onClick={() => navigate("/form")}
-          className="bg-heading text-primary p-2 rounded-4xl mt-10 text-2xl font-semibold cursor-pointer hover:bg-[#002960] hover:text-[#fe9929]"
+          className="bg-heading text-primary p-2 rounded-4xl mt-10 text-2xl font-semibold cursor-pointer hover:bg-primary hover:text-heading "
         >
           Get My Consultation!
         </button>

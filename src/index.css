@@ -41,6 +41,7 @@
   }
 }
 
+
 /* Custom hover effect */
 @layer utilities {
   .hover-animated-border {
@@ -108,3 +109,5 @@
     vertical-align: middle; /* Fixes spacing issues */
   }
 }
+
+

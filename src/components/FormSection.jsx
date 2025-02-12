@@ -618,7 +618,7 @@ const FormSection = () => {
         id: "propertyType",
         label: "Property Type",
         type: "select",
-        options: ["Commercial", "Multinational","Residential"],
+        options: ["Commercial", "Multinational", "Residential"],
       },
     ],
     [
@@ -638,7 +638,7 @@ const FormSection = () => {
         id: "bestTimeToCall",
         label: "Best Time to Call",
         type: "select",
-        options: ["Any Time", "Morning","Afternoon","Evening"],
+        options: ["Any Time", "Morning", "Afternoon", "Evening"],
       },
     ],
     [
@@ -771,26 +771,27 @@ const FormSection = () => {
     <div className="flex flex-col md:flex-row justify-center items-center bg-white text-secondary p-8 md:p-12 md:pt-0  shadow-lg">
       {/* Left side Image */}
       <div className="hidden md:block w-1/2">
-        <img
-          src={formImage}
-          alt="Solar Panel"
-          className="w-full h-auto"
-        />
+        <img src={formImage} alt="Solar Panel" className="w-full h-auto" />
       </div>
 
       {/* Right side Form */}
-      <div className="w-full md:w-1/2 p-6 md:pt-32 rounded-4xl rounded-t-full bg-[#fe9929]">
+      <div className="w-full md:w-1/2 p-6 pt-12 md:pt-32 pb-6 rounded-4xl rounded-t-full bg-[#fe9929] relative overflow-hidden flex flex-col items-center">
         <h1 className="text-4xl font-semibold mb-6 text-center">Get a Quote</h1>
+
         {/* Progress Bar */}
-        <div className="w-full bg-gray-300 rounded-full h-3 mb-6">
+        <div className="w-[90%] md:w-full bg-gray-300 rounded-full h-3 mb-6 mx-auto overflow-hidden max-w-xs md:max-w-full">
           <div
             className="bg-primary h-3 rounded-full transition-all duration-600"
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
-        <form onSubmit={handleSubmit}>
+
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col items-center overflow-auto"
+        >
           {fields[currentStep].map((field) => (
-            <div key={field.id} className="mb-6">
+            <div key={field.id} className="mb-6 w-full">
               <label htmlFor={field.id} className="block font-medium mb-2">
                 {field.label}
               </label>
@@ -855,7 +856,27 @@ const FormSection = () => {
                     className="mr-2"
                   />
                   <label htmlFor={field.id}>
-                  By clicking, I agree to the <Link to="/user-terms" className="underline text-blue-700">Terms of Service</Link>  and <Link className="underline text-blue-700" to="/privacy-policy">Privacy Policy</Link>  , I authorize home improvement companies, their contractors, and partner companies to contact me about home improvement offers by phone calls and text messages to the number I provided. I authorize that these marketing communications may be delivered to me using an automatic telephone dialing system or by prerecorded message. I understand that my consent is not a condition of purchase, and I may revoke that consent at any time. Mobile and data charges may apply. California Residents.</label>
+                    By clicking, I agree to the{" "}
+                    <Link to="/user-terms" className="underline text-blue-700">
+                      Terms of Service
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      className="underline text-blue-700"
+                      to="/privacy-policy"
+                    >
+                      Privacy Policy
+                    </Link>{" "}
+                    , I authorize home improvement companies, their contractors,
+                    and partner companies to contact me about home improvement
+                    offers by phone calls and text messages to the number I
+                    provided. I authorize that these marketing communications
+                    may be delivered to me using an automatic telephone dialing
+                    system or by prerecorded message. I understand that my
+                    consent is not a condition of purchase, and I may revoke
+                    that consent at any time. Mobile and data charges may apply.
+                    California Residents.
+                  </label>
                 </div>
               ) : (
                 <input
@@ -879,7 +900,7 @@ const FormSection = () => {
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="px-5 py-3 bg-gray-300 text-black rounded-lg shadow-md hover:bg-gray-400 cursor-pointer"
+                className="px-5 py-3 bg-gray-300 mr-15 text-black rounded-lg shadow-md hover:bg-gray-400 cursor-pointer"
               >
                 Previous
               </button>

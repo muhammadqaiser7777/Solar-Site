@@ -1,8 +1,10 @@
 import React, { memo } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = memo(() => {
+  const navigate = useNavigate();
   return (
     <div className="text-tertiary bg-primary pb-10 pt-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +13,7 @@ const AboutUs = memo(() => {
             About Us
           </h2>
           <p className="text-xl text-heading font-semibold">
-            Empowering communities with clean, reliable solar energy solutions.
+            Connecting you with expert solar installers for a brighter future.
           </p>
         </div>
 
@@ -19,22 +21,29 @@ const AboutUs = memo(() => {
           {/* Image Container with Lazy Loading */}
           <div className="lg:w-1/2 w-full flex justify-center aspect-[4/3]">
             <LazyLoadImage
-              src="/assets/images/About-us.webp" // Loading from public folder
+              src="/assets/images/About-us.webp"
               alt="About Us"
               effect="blur"
               className="rounded-lg shadow-lg w-full h-full object-cover"
-              width={800} // Keeps original size
+              width={800}
               height={600}
               decoding="async"
-              placeholderSrc="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmM2YzIi8+PC9zdmc+" 
+              placeholderSrc="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmM2YzIi8+PC9zdmc+"
             />
           </div>
-
+          
           {/* Text Content */}
           <div className="lg:w-1/2 w-full space-y-6">
             <StaticContent />
+            <button
+            onClick={() => navigate("/form")}
+            className="bg-heading text-primary p-2 rounded-4xl mt-10 text-2xl font-semibold cursor-pointer hover:bg-primary hover:text-heading  px-5 md:px-30"
+          >
+            Get My Consultation!
+          </button>
           </div>
         </div>
+        
       </div>
     </div>
   );
@@ -43,34 +52,28 @@ const AboutUs = memo(() => {
 const StaticContent = memo(() => (
   <>
     <p className="leading-relaxed mb-6">
-      At <span className="font-semibold text-heading">USA Solars</span>,
-      we believe that clean, reliable energy and storage solutions should
-      be accessible to everyone. Our mission is to reshape the connection
-      between solar energy system providers and individuals seeking to
-      embrace the power of solar energy.
+      <span className="font-semibold text-heading">USA Solars</span> simplifies
+      the transition to solar energy by connecting homeowners and businesses
+      with expert solar installers across the U.S. Our platform makes it easy
+      to compare multiple quotes, find the right provider, and make informed
+      decisions—all in just a few clicks.
     </p>
     <p className="leading-relaxed mb-6">
-      As the demand for sustainable energy solutions grows, solar energy
-      has become essential for reducing costs and ensuring energy
-      independence. It is a key driver in addressing energy challenges and
-      building a cleaner, greener future.
+      Whether you're looking to reduce energy costs, achieve energy
+      independence, or contribute to a greener future, we streamline the
+      process with trusted professionals and innovative solutions.
     </p>
-    <p className="leading-relaxed mb-6">
-      <span className="font-semibold text-heading">USA Solars</span>{" "}
-      serves as a leading platform connecting consumers with expert solar
-      installers across the United States. Founded with the vision of
-      revolutionizing the solar energy industry, we make the process of
-      acquiring solar systems simple and seamless by pairing customers
-      with a network of skilled, quality-assured local installers using
-      innovative technology.
-    </p>
-    <p className="leading-relaxed">
-      Our vision at{" "}
-      <span className="font-semibold text-heading">USA Solars</span> is
-      a future where every home and business can achieve energy
-      independence through solar power. We are dedicated to making solar
-      energy affordable, accessible, and convenient, helping individuals
-      and communities take a step toward sustainability.
+
+    <h3 className="text-2xl font-semibold text-heading mb-4">Why Choose USA Solars?</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Get connected with top solar professionals near you.</li>
+      <li>Save time by comparing multiple quotes in one place.</li>
+      <li>Make informed decisions with transparent pricing and expert guidance.</li>
+      <li>Take a step toward energy independence with ease.</li>
+    </ul>
+
+    <p className="leading-relaxed mt-6 font-semibold text-heading">
+      Switch to solar effortlessly with USA Solars!
     </p>
   </>
 ));

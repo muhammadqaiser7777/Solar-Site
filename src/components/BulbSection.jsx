@@ -12,7 +12,7 @@ const BulbSection = () => {
             Are you looking for an installer
           </p>
           <h1 className="text-3xl md:text-5xl font-bold mt-3 leading-tight">
-            We are a Global Solar Panel Pump installer
+            We are a Global Solar Panel installer
           </h1>
 
           {/* Buttons and Contact */}

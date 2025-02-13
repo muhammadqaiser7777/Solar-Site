@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import formImage from "/assets/images/solar2.webp";
+
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -776,7 +776,7 @@ const FormSection = () => {
           <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg"></div>
         )}
         <img
-          src={formImage}
+          src= "/assets/images/solar2.webp"
           alt="Solar Panel"
           className={`w-full h-auto transition-opacity duration-500 ${
             imageLoaded ? "opacity-100" : "opacity-0"

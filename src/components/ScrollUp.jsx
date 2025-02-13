@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Arrow from "/assets/images/Arrow.png";
+
 
 const ScrollUp = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -29,7 +29,7 @@ const ScrollUp = () => {
           <div className="w-12 h-12 bg-gray-300 animate-pulse rounded-full"></div>
         )}
         <img
-          src={Arrow}
+          src="/assets/images/Arrow.png"
           alt="Go to top"
           className={`w-12 h-12 bg-black rounded-full shadow-2xl hover:scale-105 transition-all duration-300 animate-bounce ${
             arrowLoaded ? "opacity-100" : "opacity-0"

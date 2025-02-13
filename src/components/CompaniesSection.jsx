@@ -49,7 +49,7 @@ const CompaniesSection = memo(() => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="flex flex-col justify-start m-2 lg:m-6 hover:bg-primary transition p-4 rounded-lg cursor-pointer"
+            className="flex flex-col justify-start m-2 lg:m-6 cursor-pointer"
           >
             <p className="text-4xl font-bold leading-none lg:text-6xl">
               <AnimatedNumber targetValue={stat.value} suffix={stat.suffix} />

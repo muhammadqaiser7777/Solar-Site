@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
-import footerBg from "/assets/images/footer-img.webp";
-import Logo from "/assets/images/logo.png";
+;
+
 
 const Footer = () => {
   const [logoLoaded, setLogoLoaded] = useState(false);
@@ -12,7 +12,7 @@ const Footer = () => {
 
   useEffect(() => {
     const img = new Image();
-    img.src = footerBg;
+    img.src = "/assets/images/footer-img.webp";
     img.onload = () => setBgLoaded(true);
   }, []);
 
@@ -35,7 +35,7 @@ const Footer = () => {
       }`}
       style={{
         backgroundImage: bgLoaded
-          ? `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${footerBg})`
+          ? `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${"/assets/images/footer-img.webp"})`
           : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -56,7 +56,7 @@ const Footer = () => {
               <div className="h-24 w-24 bg-gray-300 animate-pulse rounded-md"></div>
             )}
             <img
-              src={Logo}
+              src="/assets/images/logo.png"
               alt="USA SOLARS LOGO"
               className={`h-24 w-24 transition-opacity duration-500 ${
                 logoLoaded ? "opacity-100" : "opacity-0"

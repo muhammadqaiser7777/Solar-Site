@@ -32,7 +32,7 @@ const ServiceTypes = () => {
       {/* Heading Section */}
       <div className="mb-10">
         <h2 className="text-4xl font-bold text-gray-900">We Provide Energy</h2>
-        <p className="text-gray-500 mt-2 text-lg">
+        <p className="text-black mt-2 text-lg">
           Powering governments, homes, and businesses with sustainable solutions.
         </p>
       </div>
@@ -56,7 +56,7 @@ const ServiceTypes = () => {
               {/* Title & Description */}
               <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
               <div className="w-10 h-1 bg-primary mx-auto mt-3"></div>
-              <p className="text-gray-600 mt-4">{service.description}</p>
+              <p className="text-black mt-4">{service.description}</p>
 
               {/* Background Hover Effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fe9929] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl"></div>

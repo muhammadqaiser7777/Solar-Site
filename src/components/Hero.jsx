@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Use public assets instead of importing them directly
 const sliderItems = [
   {
     type: "video",
@@ -30,7 +29,7 @@ const CustomArrow = ({ onClick, direction }) => (
   >
     <img
       src={`/assets/images/${direction}-arrow.png`}
-      alt={direction === "left" ? "Previous" : "Next"}
+      alt={direction === "left" ? "Previous" : "Next"} // ✅ Fixed the error
       className="w-6 h-6 sm:w-10 sm:h-10 hover:scale-110 transition-transform"
       loading="lazy"
       decoding="async"
@@ -40,6 +39,19 @@ const CustomArrow = ({ onClick, direction }) => (
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [loadedImages, setLoadedImages] = useState({});
+
+  useEffect(() => {
+    sliderItems.forEach((item) => {
+      if (item.type === "image") {
+        const img = new Image();
+        img.src = item.src;
+        img.onload = () => {
+          setLoadedImages((prev) => ({ ...prev, [item.src]: true }));
+        };
+      }
+    });
+  }, []);
 
   const settings = {
     dots: true,
@@ -48,7 +60,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000, // 5 seconds per slide
+    autoplaySpeed: 4000,
     arrows: true,
     prevArrow: <CustomArrow direction="left" />,
     nextArrow: <CustomArrow direction="right" />,
@@ -62,7 +74,7 @@ const Hero = () => {
           <div key={index} className="slider-item w-full h-screen sm:h-[90vh] relative">
             {item.type === "image" ? (
               <img
-                src={item.src}
+                src={loadedImages[item.src] ? item.src : "/assets/images/placeholder.webp"}
                 alt={item.alt}
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -75,11 +87,10 @@ const Hero = () => {
                 muted
                 loop
                 className="w-full h-full object-cover"
-                preload="none"
+                preload="metadata"
               />
             )}
 
-            {/* Text overlay and Get Quote button */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-base sm:text-xl md:text-2xl font-bold text-secondary bg-opacity-50 p-2 sm:p-4 md:p-8 cursor-pointer">
               <p className="mb-2 sm:mb-4 bg-[#fe9b29d6] px-4 sm:px-6 py-6 sm:py-10 rounded-4xl">
                 {item.text}

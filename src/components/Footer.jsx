@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +7,15 @@ import footerBg from "/assets/images/footer-img.webp";
 import Logo from "/assets/images/logo.png";
 
 const Footer = () => {
+  const [logoLoaded, setLogoLoaded] = useState(false);
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = footerBg;
+    img.onload = () => setBgLoaded(true);
+  }, []);
+
   const navigate = useNavigate();
 
   const handleNavigate = (id) => {
@@ -20,12 +30,17 @@ const Footer = () => {
 
   return (
     <footer
-      className="px-4 divide-y-2 relative"
+      className={`px-4 divide-y-2 relative transition-opacity duration-500 ${
+        bgLoaded ? "opacity-100" : "opacity-0"
+      }`}
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${footerBg})`,
+        backgroundImage: bgLoaded
+          ? `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${footerBg})`
+          : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundColor: "#1a1a1a", // Fallback background color
       }}
     >
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
@@ -36,9 +51,20 @@ const Footer = () => {
             smooth={true}
             duration={500}
             className="flex justify-start lg:justify-start cursor-pointer pl-3"
-            onClick={() => handleNavigate("")}
           >
-            <img src={Logo} alt="USA SOLARS LOGO" className="h-24 w-24" />
+            {!logoLoaded && (
+              <div className="h-24 w-24 bg-gray-300 animate-pulse rounded-md"></div>
+            )}
+            <img
+              src={Logo}
+              alt="USA SOLARS LOGO"
+              className={`h-24 w-24 transition-opacity duration-500 ${
+                logoLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setLogoLoaded(true)}
+            />
           </ScrollLink>
 
           <h1 className="font-bold text-2xl ">

@@ -50,7 +50,6 @@ const CompaniesSection = memo(() => {
           <div
             key={index}
             className="flex flex-col justify-start m-2 lg:m-6 hover:bg-primary transition p-4 rounded-lg cursor-pointer"
-            onMouseEnter={() => console.log("Hover is ON")}
           >
             <p className="text-4xl font-bold leading-none lg:text-6xl">
               <AnimatedNumber targetValue={stat.value} suffix={stat.suffix} />

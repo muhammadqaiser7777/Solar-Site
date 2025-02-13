@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const FormSection = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     currencyBill: "",
@@ -770,10 +771,21 @@ const FormSection = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center bg-white text-secondary p-8 md:p-12 md:pt-0  shadow-lg">
       {/* Left side Image */}
-      <div className="hidden md:block w-1/2">
-        <img src={formImage} alt="Solar Panel" className="w-full h-auto" />
+      <div className="hidden md:block w-1/2 relative">
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg"></div>
+        )}
+        <img
+          src={formImage}
+          alt="Solar Panel"
+          className={`w-full h-auto transition-opacity duration-500 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setImageLoaded(true)}
+        />
       </div>
-
       {/* Right side Form */}
       <div className="w-full md:w-1/2 p-6 pt-12 md:pt-32 pb-6 rounded-4xl rounded-t-full bg-[#fe9929] relative overflow-hidden flex flex-col items-center">
         <h1 className="text-4xl font-semibold mb-6 text-center">Get a Quote</h1>

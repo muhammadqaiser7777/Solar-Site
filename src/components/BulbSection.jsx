@@ -21,7 +21,7 @@ const BulbSection = () => {
               onClick={() => navigate("/form")}
               className="bg-heading text-primary px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-orange-600 transition cursor-pointer"
             >
-              Get Quote
+              Get Started
             </button>
           </div>
         </div>

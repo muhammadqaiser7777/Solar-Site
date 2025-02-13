@@ -99,7 +99,7 @@ const Hero = () => {
                 onClick={() => navigate("/form")}
                 className="mt-2 sm:mt-4 px-10 sm:px-20 py-2 sm:py-3 bg-primary text-tertiary font-semibold text-sm sm:text-lg rounded-4xl shadow-lg hover:bg-heading hover:text-primary transition-ease-in-out duration-400 cursor-pointer"
               >
-                Get Quote
+                Get Started
               </button>
             </div>
           </div>

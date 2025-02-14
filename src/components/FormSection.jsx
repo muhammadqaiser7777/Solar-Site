@@ -867,16 +867,16 @@ const FormSection = () => {
                   required
                 />
               ) : field.type === "checkbox" ? (
-                <div className="flex items-center ">
+                <div className="flex items-start gap-2">
                   <input
                     type="checkbox"
                     id={field.id}
                     name={field.id}
                     checked={formData[field.id]}
                     onChange={handleChange}
-                    className="mr-2"
+                    className="mt-1"
                   />
-                  <label htmlFor={field.id}>
+                  <label htmlFor={field.id} className="text-sm ">
                     By clicking, I agree to the{" "}
                     <Link to="/user-terms" className="underline text-primary">
                       Terms of Service
@@ -887,7 +887,7 @@ const FormSection = () => {
                       to="/privacy-policy"
                     >
                       Privacy Policy
-                    </Link>{" "}
+                    </Link>
                     , I authorize home improvement companies, their contractors,
                     and partner companies to contact me about home improvement
                     offers by phone calls and text messages to the number I

@@ -54,7 +54,7 @@ const ServiceTypes = () => {
               </Suspense>
 
               {/* Title & Description */}
-              <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+              <h3 className="text-xl font-semibold text-black">{service.title}</h3>
               <div className="w-10 h-1 bg-primary mx-auto mt-3"></div>
               <p className="text-black mt-4">{service.description}</p>
 

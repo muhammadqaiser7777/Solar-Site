@@ -796,7 +796,7 @@ const FormSection = () => {
         />
       </div>
       {/* Right side Form */}
-      <div className="w-full md:w-1/2 p-6 pt-12 md:pt-32 pb-6 rounded-4xl rounded-t-full bg-[#fe9929] relative overflow-hidden flex flex-col items-center">
+      <div className="w-full md:w-1/2 p-6 pt-12 md:pt-32 pb-6 rounded-4xl md:rounded-t-full bg-[#fe9929] relative overflow-hidden flex flex-col items-center">
         <h1 className="text-4xl font-semibold mb-6 text-center">Get a Quote</h1>
 
         {/* Progress Bar */}
@@ -809,7 +809,7 @@ const FormSection = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col items-center overflow-auto"
+          className="w-full max-w-xs sm:max-w-xl md:max-w-lg flex flex-col items-center overflow-auto"
         >
           {fields[currentStep].map((field) => (
             <div key={field.id} className="mb-6 w-full">
@@ -867,7 +867,7 @@ const FormSection = () => {
                   required
                 />
               ) : field.type === "checkbox" ? (
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2  ">
                   <input
                     type="checkbox"
                     id={field.id}
@@ -876,7 +876,7 @@ const FormSection = () => {
                     onChange={handleChange}
                     className="mt-1"
                   />
-                  <label htmlFor={field.id} className="text-sm ">
+                  <label htmlFor={field.id} className="text-sm text-justify">
                     By clicking, I agree to the{" "}
                     <Link to="/user-terms" className="underline text-primary">
                       Terms of Service

@@ -657,16 +657,24 @@ const FormSection = () => {
 
   const validateFields = () => {
     let newErrors = {};
+
     fields[currentStep].forEach((field) => {
       if (!formData[field.id]) {
         newErrors[field.id] = "This field is required";
       }
-      if (field.id === "zipCode" && formData.zipCode.length > 5) {
-        newErrors.zipCode = "Zip code cannot exceed 5 digits";
+
+      if (field.id === "zipCode") {
+        if (formData.zipCode.length !== 5) {
+          newErrors.zipCode = "Zip code must be exactly 5 digits";
+        }
       }
-      if (field.id === "phone" && formData.phone.length > 10) {
-        newErrors.phone = "Phone number cannot exceed 10 digits";
+
+      if (field.id === "phone") {
+        if (formData.phone.length !== 10) {
+          newErrors.phone = "Phone number must be exactly 10 digits";
+        }
       }
+
       if (
         field.id === "email" &&
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
@@ -674,6 +682,7 @@ const FormSection = () => {
         newErrors.email = "Invalid email format";
       }
     });
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -776,7 +785,7 @@ const FormSection = () => {
           <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg"></div>
         )}
         <img
-          src= "/assets/images/solar2.webp"
+          src="/assets/images/solar2.webp"
           alt="Solar Panel"
           className={`w-full h-auto transition-opacity duration-500 ${
             imageLoaded ? "opacity-100" : "opacity-0"
@@ -858,7 +867,7 @@ const FormSection = () => {
                   required
                 />
               ) : field.type === "checkbox" ? (
-                <div className="flex items-center">
+                <div className="flex items-center ">
                   <input
                     type="checkbox"
                     id={field.id}
@@ -869,12 +878,12 @@ const FormSection = () => {
                   />
                   <label htmlFor={field.id}>
                     By clicking, I agree to the{" "}
-                    <Link to="/user-terms" className="underline text-blue-700">
+                    <Link to="/user-terms" className="underline text-primary">
                       Terms of Service
                     </Link>{" "}
                     and{" "}
                     <Link
-                      className="underline text-blue-700"
+                      className="underline text-primary"
                       to="/privacy-policy"
                     >
                       Privacy Policy
@@ -912,7 +921,7 @@ const FormSection = () => {
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="px-5 py-3 bg-gray-300 mr-15 text-black rounded-lg shadow-md hover:bg-gray-400 cursor-pointer"
+                className="px-5 py-3 bg-tertiary mr-15 text-black rounded-lg shadow-md hover:bg-primary hover:text-heading cursor-pointer"
               >
                 Previous
               </button>

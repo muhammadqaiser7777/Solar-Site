@@ -28,10 +28,10 @@ const services = [
 
 const ServiceTypes = () => {
   return (
-    <section className="py-12 bg-white text-center">
+    <section className=" bg-white text-center">
       {/* Heading Section */}
       <div className="mb-10">
-        <h2 className="text-4xl font-bold text-gray-900">We Provide Energy</h2>
+        <h2 className="text-4xl font-bold text-heading">We Provide Energy</h2>
         <p className="text-black mt-2 text-lg">
           Powering governments, homes, and businesses with sustainable solutions.
         </p>
@@ -59,7 +59,7 @@ const ServiceTypes = () => {
               <p className="text-black mt-4">{service.description}</p>
 
               {/* Background Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fe9929] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#a4988b] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl"></div>
             </div>
           );
         })}

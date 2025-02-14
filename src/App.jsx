@@ -48,7 +48,7 @@ function App() {
           <Route
             path="/form"
             element={
-              <div className="min-h-screen pt-24">
+              <div className="pt-24">
                 <FormSection />
               </div>
             }

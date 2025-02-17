@@ -6,34 +6,46 @@ const EnergySection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = "/assets/images/reshaping.webp";
-    img.onload = () => setImageLoaded(true);
+    // Check if the image was already loaded before
+    const cached = sessionStorage.getItem("energyImageLoaded");
+
+    if (cached) {
+      setImageLoaded(true);
+    } else {
+      const img = new Image();
+      img.src = "/assets/images/reshaping.webp";
+      img.onload = () => {
+        setImageLoaded(true);
+        sessionStorage.setItem("energyImageLoaded", "true"); // Cache the load status
+      };
+    }
   }, []);
 
   return (
     <>
-      {/* Preload image for faster loading */}
+      {/* Preload Image */}
       <link rel="preload" href="/assets/images/reshaping.webp" as="image" />
 
       <section 
-        className="flex flex-col lg:flex-row items-center bg-white min-h-screen px-6 md:px-16 py-24 
+        className="flex flex-col lg:flex-row items-center bg-white min-h-screen px-6 md:px-16 pt-24 pb-10 
         md:items-start lg:items-center"
       >
         {/* Image Section */}
         <div className="w-full lg:w-1/2 flex justify-center">
           {!imageLoaded ? (
+            // Placeholder before the image loads
             <div className="w-full h-[400px] bg-gray-300 animate-pulse rounded-lg shadow-md"></div>
           ) : (
             <img
               src="/assets/images/reshaping.webp"
               alt="Solar Panels"
-              className="w-full h-auto max-w-[600px] object-cover rounded-lg shadow-md"
+              className="w-full h-auto max-w-[600px] object-cover rounded-lg shadow-md transition-opacity duration-700 ease-in-out"
               loading="eager"
               decoding="async"
             />
           )}
         </div>
+
 
         {/* Text Section */}
         <div 

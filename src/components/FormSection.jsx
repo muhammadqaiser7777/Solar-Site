@@ -939,7 +939,7 @@ const FormSection = () => {
                 type="submit"
                 className="px-5 py-3 bg-primary text-white rounded-lg shadow-md cursor-pointer"
               >
-                Submit
+                Get My Consultation
               </button>
             )}
           </div>

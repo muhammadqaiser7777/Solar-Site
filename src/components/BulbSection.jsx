@@ -19,7 +19,7 @@ const BulbSection = () => {
           <div className="mt-6 flex flex-col md:flex-row items-center md:items-start">
             <button
               onClick={() => navigate("/form")}
-              className="bg-heading text-primary px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-orange-600 transition cursor-pointer"
+              className="bg-heading text-primary px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-primary hover:text-heading transition cursor-pointer"
             >
               Get Started
             </button>

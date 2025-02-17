@@ -9,18 +9,19 @@ const sliderItems = [
   {
     type: "video",
     src: "/assets/videos/solar1.mp4",
+    poster: "/assets/images/video-placeholder.webp", // Preview before video loads
     alt: "Video 1",
     text: "Custom solar solutions tailored to your needs. Request a free quote!",
   },
   {
     type: "image",
     src: "/assets/images/image2.webp",
+    // placeholder: "/assets/images/placeholder.webp", // Low-quality preview
     alt: "Image 2",
     text: "Keep your solar system running with expert maintenance. Get a quote!",
   },
 ];
 
-// Custom arrow components using React Icons
 const CustomArrow = ({ onClick, direction }) => (
   <button
     className={`absolute ${direction === "left" ? "left-2 sm:left-4" : "right-2 sm:right-4"} 
@@ -38,7 +39,7 @@ const CustomArrow = ({ onClick, direction }) => (
 
 const Hero = () => {
   const navigate = useNavigate();
-  const [loadedImages, setLoadedImages] = useState({});
+  const [loadedItems, setLoadedItems] = useState({});
 
   useEffect(() => {
     sliderItems.forEach((item) => {
@@ -46,7 +47,7 @@ const Hero = () => {
         const img = new Image();
         img.src = item.src;
         img.onload = () => {
-          setLoadedImages((prev) => ({ ...prev, [item.src]: true }));
+          setLoadedItems((prev) => ({ ...prev, [item.src]: true }));
         };
       }
     });
@@ -67,15 +68,15 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-section h-screen sm:h-[80vh] relative">
+    <div className="hero-section h-screen sm:h-[80vh] relative bg-gray-900">
       <Slider {...settings}>
         {sliderItems.map((item, index) => (
           <div key={index} className="slider-item w-full h-screen sm:h-[90vh] relative">
             {item.type === "image" ? (
               <img
-                src={loadedImages[item.src] ? item.src : "/assets/images/placeholder.webp"}
+                src={loadedItems[item.src] ? item.src : item.placeholder}
                 alt={item.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
                 loading="lazy"
                 decoding="async"
               />
@@ -85,7 +86,8 @@ const Hero = () => {
                 autoPlay
                 muted
                 loop
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+                poster={item.poster}
                 preload="metadata"
               />
             )}

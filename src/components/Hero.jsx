@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -19,7 +20,7 @@ const sliderItems = [
   },
 ];
 
-// Custom arrow components
+// Custom arrow components using React Icons
 const CustomArrow = ({ onClick, direction }) => (
   <button
     className={`absolute ${direction === "left" ? "left-2 sm:left-4" : "right-2 sm:right-4"} 
@@ -27,13 +28,11 @@ const CustomArrow = ({ onClick, direction }) => (
     onClick={onClick}
     aria-label={direction === "left" ? "Previous Slide" : "Next Slide"}
   >
-    <img
-      src={`/assets/images/${direction}-arrow.png`}
-      alt={direction === "left" ? "Previous" : "Next"} // ✅ Fixed the error
-      className="w-6 h-6 sm:w-10 sm:h-10 hover:scale-110 transition-transform"
-      loading="lazy"
-      decoding="async"
-    />
+    {direction === "left" ? (
+      <FiChevronLeft className="w-8 h-8 sm:w-12 sm:h-12 text-black hover:scale-110 transition-transform" />
+    ) : (
+      <FiChevronRight className="w-8 h-8 sm:w-12 sm:h-12 text-black hover:scale-110 transition-transform" />
+    )}
   </button>
 );
 

@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section className=" text-tertiary">
       <div className="text-center">
-        <h2 className="text-3xl sm:text-6xl mb-4 hover-animation cursor-pointer">
+        <h2 className="text-3xl sm:text-6xl mb-4 hover-animation cursor-pointer mt-6">
           Contact Us
         </h2>
       </div>

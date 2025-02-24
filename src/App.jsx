@@ -16,6 +16,7 @@ import ThankYou from "./components/ThankYou";
 import EnergySection from "./components/EnergySection";
 import ServiceTypes from "./components/ServiceTypes";
 import BulbSection from "./components/BulbSection";
+import MarketingPartners from "./components/MarketingPartners";
 
 function App() {
   return (
@@ -90,6 +91,14 @@ function App() {
             element={
               <div className="min-h-screen pt-10">
                 <CaliforniaPrivacyNotice />
+              </div>
+            }
+          />
+           <Route
+            path="/marketing-partners"
+            element={
+              <div className="min-h-screen pt-10">
+                <MarketingPartners />
               </div>
             }
           />

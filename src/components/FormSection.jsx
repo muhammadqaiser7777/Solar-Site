@@ -889,7 +889,8 @@ const FormSection = () => {
                       Privacy Policy
                     </Link>
                     , I authorize home improvement companies, their contractors,
-                    and partner companies to contact me about home improvement
+                    and <Link className="underline text-primary"
+                      to="/marketing-partners" >Partner Companies</Link> to contact me about home improvement
                     offers by phone calls and text messages to the number I
                     provided. I authorize that these marketing communications
                     may be delivered to me using an automatic telephone dialing

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -6,7 +6,7 @@ import Hero from "./components/Hero";
 import ScrollUp from "./components/ScrollUp";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
-import CompaniesSection from "./components/CompaniesSection";
+// import CompaniesSection from "./components/CompaniesSection";
 import FormSection from "./components/FormSection";
 import AutoScroll from "./components/AutoScroll";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -38,9 +38,9 @@ function App() {
                 <EnergySection />
                 <ServiceTypes />
                 <BulbSection />
-                <div id="companies">
+                {/* <div id="companies">
                   <CompaniesSection />
-                </div>
+                </div> */}
               </>
             }
           />

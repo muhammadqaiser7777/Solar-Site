@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const UserTerms = () => {
@@ -84,7 +83,7 @@ const UserTerms = () => {
           You shall not use this platform/service for any illegal purpose or for
           the transmission of any unlawful material or material that is abusive,
           harmful, harassing, libelous, racially or ethnically offensive,
-          invasive of another's privacy, obscene, threatening, vulgar, sexually
+          invasive of another&apos;s privacy, obscene, threatening, vulgar, sexually
           explicit, tortious, defamatory, or that infringes or may infringe on
           the intellectual property or rights of another, or in a reasonable
           person’s view objectionable. Other prohibited activities include but
@@ -122,7 +121,7 @@ const UserTerms = () => {
       <section>
         <p>
           THE CONTENT AND ALL SERVICES ASSOCIATED WITH OUR PLATFORMS ARE
-          PROVIDED TO YOU ON AN "AS-IS" AND "AS AVAILABLE" BASIS. WE MAKE NO
+          PROVIDED TO YOU ON AN &quot;AS-IS&quot; AND &quot;AS AVAILABLE&quot; BASIS. WE MAKE NO
           REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO
           THE OPERATION OF OUR SERVICES OR THE INFORMATION, CONTENT, MATERIALS,
           OR SERVICES INCLUDED ON OR ASSOCIATED WITH OUR SERVICES.

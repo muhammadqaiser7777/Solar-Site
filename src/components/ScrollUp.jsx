@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FiChevronUp } from "react-icons/fi"; // ✅ Importing React Icon
 
 const ScrollUp = () => {

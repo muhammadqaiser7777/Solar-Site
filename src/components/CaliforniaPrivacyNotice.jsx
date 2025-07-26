@@ -1,4 +1,3 @@
-import React from "react";
 
 const CaliforniaPrivacyNotice = () => {
   return (
@@ -29,7 +28,7 @@ const CaliforniaPrivacyNotice = () => {
           other privacy laws and otherwise excluded from the scope of the CCPA.
           This table identifies the categories of personal information we have
           collected about consumers within the last 12 months:
-          <table class="table-auto border-2 border-amber-300">
+          <table className="table-auto border-2 border-amber-300">
             <thead>
               <tr>
                 <th>Category</th>

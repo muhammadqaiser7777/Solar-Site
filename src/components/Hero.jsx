@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// ...existing code...
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; 
@@ -7,16 +7,14 @@ import "slick-carousel/slick/slick-theme.css";
 
 const sliderItems = [
   {
-    type: "video",
-    src: "/assets/videos/solar1.mp4",
-    poster: "/assets/images/video-placeholder.webp", // Preview before video loads
-    alt: "Video 1",
+    type: "image",
+    src: "/assets/images/Solar-worker.jpg",
+    alt: "Image 1",
     text: "Custom solar solutions tailored to your needs. Request a free quote!",
   },
   {
     type: "image",
     src: "/assets/images/image2.webp",
-    // placeholder: "/assets/images/placeholder.webp", // Low-quality preview
     alt: "Image 2",
     text: "Keep your solar system running with expert maintenance. Get a quote!",
   },
@@ -37,21 +35,16 @@ const CustomArrow = ({ onClick, direction }) => (
   </button>
 );
 
+// PropTypes validation for CustomArrow
+import PropTypes from "prop-types";
+CustomArrow.propTypes = {
+  onClick: PropTypes.func,
+  direction: PropTypes.string,
+};
+
 const Hero = () => {
   const navigate = useNavigate();
-  const [loadedItems, setLoadedItems] = useState({});
-
-  useEffect(() => {
-    sliderItems.forEach((item) => {
-      if (item.type === "image") {
-        const img = new Image();
-        img.src = item.src;
-        img.onload = () => {
-          setLoadedItems((prev) => ({ ...prev, [item.src]: true }));
-        };
-      }
-    });
-  }, []);
+  // No custom preloading, use native lazy loading
 
   const settings = {
     dots: true,
@@ -74,7 +67,7 @@ const Hero = () => {
           <div key={index} className="slider-item w-full h-screen sm:h-[90vh] relative">
             {item.type === "image" ? (
               <img
-                src={loadedItems[item.src] ? item.src : item.placeholder}
+                src={item.src}
                 alt={item.alt}
                 className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
                 loading="lazy"

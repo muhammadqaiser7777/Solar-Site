@@ -1,13 +1,17 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
 
 const AboutUs = memo(() => {
+// Add display name for memoized component
+AboutUs.displayName = "AboutUs";
   const navigate = useNavigate();
 
   return (
     <div className="text-tertiary bg-primary pb-10 pt-10">
+      {/* Preload About Us image for faster loading */}
+      <link rel="preload" href="/assets/images/About-us.webp" as="image" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
         <div className="text-center">
@@ -55,35 +59,37 @@ const AboutUs = memo(() => {
 });
 
 // Memoizing StaticContent to prevent re-renders
-const StaticContent = memo(() => (
-  <>
-    <p className="leading-relaxed mb-6">
-      <span className="font-semibold text-heading">USA Solars</span> simplifies
-      the transition to solar energy by connecting homeowners and businesses
-      with expert solar installers across the U.S. Our platform makes it easy
-      to compare multiple quotes, find the right provider, and make informed
-      decisions—all in just a few clicks.
-    </p>
-    <p className="leading-relaxed mb-6">
-      Whether you're looking to reduce energy costs, achieve energy
-      independence, or contribute to a greener future, we streamline the
-      process with trusted professionals and innovative solutions.
-    </p>
+const StaticContent = memo(function StaticContent() {
+  return (
+    <>
+      <p className="leading-relaxed mb-6">
+        <span className="font-semibold text-heading">USA Solars</span> simplifies
+        the transition to solar energy by connecting homeowners and businesses
+        with expert solar installers across the U.S. Our platform makes it easy
+        to compare multiple quotes, find the right provider, and make informed
+        decisions—all in just a few clicks.
+      </p>
+      <p className="leading-relaxed mb-6">
+        Whether you&apos;re looking to reduce energy costs, achieve energy
+        independence, or contribute to a greener future, we streamline the
+        process with trusted professionals and innovative solutions.
+      </p>
 
-    <h3 className="text-2xl font-semibold text-heading mb-4">
-      Why Choose USA Solars?
-    </h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Get connected with top solar professionals near you.</li>
-      <li>Save time by comparing multiple quotes in one place.</li>
-      <li>Make informed decisions with transparent pricing and expert guidance.</li>
-      <li>Take a step toward energy independence with ease.</li>
-    </ul>
+      <h3 className="text-2xl font-semibold text-heading mb-4">
+        Why Choose USA Solars?
+      </h3>
+      <ul className="list-disc pl-6 space-y-2">
+        <li>Get connected with top solar professionals near you.</li>
+        <li>Save time by comparing multiple quotes in one place.</li>
+        <li>Make informed decisions with transparent pricing and expert guidance.</li>
+        <li>Take a step toward energy independence with ease.</li>
+      </ul>
 
-    <p className="leading-relaxed mt-6 font-semibold text-heading">
-      Switch to solar effortlessly with USA Solars!
-    </p>
-  </>
-));
+      <p className="leading-relaxed mt-6 font-semibold text-heading">
+        Switch to solar effortlessly with USA Solars!
+      </p>
+    </>
+  );
+});
 
 export default AboutUs;

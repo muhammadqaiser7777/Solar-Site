@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -744,8 +744,8 @@ const FormSection = () => {
           }
         );
 
-        const responseText = await response.text();
-        // alert("Server response: " + responseText);
+        await response.text();
+        // alert("Server response: " + (await response.text()));
       } catch (error) {
         console.error("Error submitting demo form:", error);
         alert("There was an error submitting the form. Please try again.");

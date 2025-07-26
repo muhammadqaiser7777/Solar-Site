@@ -1,8 +1,49 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
+// Custom styles for navbar buttons
+const navButtonStyles = `
+.nav-btn {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), border-color 0.2s, color 0.2s;
+  overflow: hidden;
+}
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, #d3af85ff 0%, #fe9929 100%);
+  transform: scaleX(0);
+  transform-origin: var(--mouse-x, left);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: 0;
+}
+.nav-btn:hover, .nav-btn.active {
+  border-color: #fe9929;
+  color: #2563eb !important;
+  transform: scale(1.1);
+}
+.nav-btn:hover::before, .nav-btn.active::before {
+  transform: scaleX(1);
+}
+.nav-btn span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+.nav-btn:hover span, .nav-btn.active span {
+  color: #2563eb;
+}
+.nav-btn-group:hover .nav-btn:not(:hover) {
+  transform: scale(1.05);
+}
+`;
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
   const menuItems = [
     { path: "/", label: "Home" },
@@ -44,18 +85,26 @@ const NavBar = () => {
 
         {/* Navigation Menu */}
         <ul
-          className={`${
+          className={`nav-btn-group ${
             menuOpen ? "flex" : "hidden"
           } md:flex flex-col md:flex-row md:items-stretch space-y-3 md:space-y-0 md:space-x-3 absolute md:static top-16 left-0 w-full md:w-auto bg-primary md:bg-transparent md:top-0 p-4 md:p-0`}
         >
-          {menuItems.map((item) => (
+          {menuItems.map((item, idx) => (
             <li key={item.path} className="flex">
               <Link
                 to={item.path}
-                className="block w-full px-4 py-4 cursor-pointer hover:text-heading hover-animated-border"
+                className={`nav-btn block w-full px-4 py-4 cursor-pointer${item.label === 'Get Quote' ? ' font-bold italic' : ''}${hoveredIdx === idx ? ' active' : ''}`}
                 onClick={() => setMenuOpen(false)}
+                onMouseEnter={e => {
+                  setHoveredIdx(idx);
+                  // Set mouse position for background fill
+                  const rect = e.target.getBoundingClientRect();
+                  const x = ((e.clientX - rect.left) / rect.width) * 100;
+                  e.target.style.setProperty('--mouse-x', x < 50 ? 'left' : 'right');
+                }}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
-                {item.label}
+                <span>{item.label}</span>
               </Link>
             </li>
           ))}
@@ -66,3 +115,11 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+// Inject custom styles for nav buttons
+if (typeof document !== 'undefined' && !document.getElementById('nav-btn-styles')) {
+  const style = document.createElement('style');
+  style.id = 'nav-btn-styles';
+  style.innerHTML = navButtonStyles;
+  document.head.appendChild(style);
+}

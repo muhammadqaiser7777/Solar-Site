@@ -1,26 +1,26 @@
-import React from "react";
 import { FaBuilding, FaHome, FaCity } from "react-icons/fa";
 
 const services = [
   {
     title: "GOVERNMENT",
     description:
-      "Empowering cities with sustainable solar energy solutions. Our efficient solar grids reduce costs and carbon footprint, making clean energy accessible for public services and infrastructure.",
+      "We connect cities and municipalities with trusted solar energy providers. Discover sustainable solutions that reduce costs, lower carbon footprints, and power public services with clean energy.",
     icon: FaCity,
   },
   {
     title: "RESIDENTIAL",
     description:
-      "Harness the power of the sun for your home. Our advanced solar panels provide clean, renewable energy, reducing electricity bills and increasing energy independence.",
+      "Looking to power your home with solar? We match homeowners with reliable solar panel installers who provide clean, renewable energy to lower bills and boost energy independence.",
     icon: FaHome,
   },
   {
     title: "COMMERCIAL",
     description:
-      "Helping businesses transition to cost-effective solar energy. Our tailored solar solutions optimize energy efficiency, reduce operational costs, and support sustainable business practices.",
+      "We help businesses find top-rated solar providers for cost-effective, sustainable energy solutions. Transition to clean power, reduce operational costs, and support a greener future.",
     icon: FaBuilding,
   },
 ];
+
 
 const ServiceTypes = () => {
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const BulbSection = () => {
@@ -9,10 +8,10 @@ const BulbSection = () => {
         {/* Left Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <p className="uppercase text-lg font-bold text-heading">
-            Are you looking for an installer
+            Looking for a trusted solar panel installer?
           </p>
           <h1 className="text-3xl md:text-5xl font-bold mt-3 leading-tight">
-            We are a Global Solar Panel installer
+            We connect you with top-rated solar providers worldwide
           </h1>
 
           {/* Buttons and Contact */}

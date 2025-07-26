@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const EnergySection = () => {
@@ -47,33 +47,32 @@ const EnergySection = () => {
         </div>
 
 
-        {/* Text Section */}
-        <div 
-          className="w-full lg:w-1/2 lg:pl-12 flex flex-col justify-start 
-          mt-10 lg:mt-0 text-center lg:text-left"
-        >
-          <h1 className="text-4xl font-bold text-heading leading-tight">
-            Reshaping energy for the future!
-          </h1>
-          <p className="text-lg text-black font-semibold mt-4">
-            The future of energy is clean, sustainable, and efficient. By embracing innovative technologies and renewable solutions, we are transforming the way we power our world.
-          </p>
+       {/* Text Section */}
+<div 
+  className="w-full lg:w-1/2 lg:pl-12 flex flex-col justify-start 
+  mt-10 lg:mt-0 text-center lg:text-left"
+>
+  <h1 className="text-4xl font-bold text-heading leading-tight">
+    Reshaping energy for the future—together!
+  </h1>
+  <p className="text-lg text-black font-semibold mt-4">
+    The future of energy is clean, sustainable, and efficient. We help you connect with trusted renewable energy providers who make this vision a reality.
+  </p>
 
-          <div className="lg:block">
-            <p className="text-secondary mt-4 leading-relaxed">
-              From harnessing the power of the wind to maximizing solar efficiency, we are paving the way for a greener tomorrow. Our solutions reduce carbon emissions, lower energy costs, and promote a healthier planet.
-            </p>
-            <p className="text-secondary mt-4 leading-relaxed">
-              The shift towards renewable energy is not just a choice but a necessity. By integrating smart grids, advanced storage systems, and eco-friendly infrastructure, we ensure a sustainable future for generations to come.
-            </p>
-            <p className="text-secondary mt-4 leading-relaxed">
-              Innovative energy solutions are driving a global transformation, reducing dependence on fossil fuels and embracing cleaner alternatives. By investing in cutting-edge solar, wind, and hydro technologies, we are building a resilient energy ecosystem that supports economic growth while preserving the environment.
-            </p>
-            <p className="text-secondary mt-4 leading-relaxed">
-              As the demand for energy continues to rise, adopting renewable sources is crucial for a sustainable future.
-            </p>
-          </div>
-
+  <div className="lg:block">
+    <p className="text-secondary mt-4 leading-relaxed">
+      From harnessing the power of the wind to maximizing solar efficiency, we guide you toward the best options to reduce carbon emissions, lower energy costs, and support a healthier planet.
+    </p>
+    <p className="text-secondary mt-4 leading-relaxed">
+      The shift towards renewable energy isn’t just a choice—it’s a necessity. We make it easier by connecting you with leading experts in solar, wind, smart grids, and eco-friendly infrastructure.
+    </p>
+    <p className="text-secondary mt-4 leading-relaxed">
+      Innovative energy technologies are transforming the world, and we’re here to match you with trusted providers who can deliver the right solutions for your needs.
+    </p>
+    <p className="text-secondary mt-4 leading-relaxed">
+      As demand for energy continues to grow, choosing renewable sources is crucial. Let us help you take the first step toward a cleaner, more sustainable future by finding the right energy partner.
+    </p>
+  </div>
           <button
             onClick={() => navigate("/form")}
             className="bg-heading text-primary p-2 rounded-4xl mt-10 text-2xl font-semibold cursor-pointer hover:bg-primary hover:text-heading"

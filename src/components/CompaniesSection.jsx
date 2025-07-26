@@ -1,4 +1,5 @@
-import React, { useState, useEffect, memo } from "react";
+import PropTypes from "prop-types";
+import { useState, useEffect, memo } from "react";
 import { useInView } from "react-intersection-observer";
 
 const stats = [
@@ -11,6 +12,11 @@ const stats = [
 ];
 
 const AnimatedNumber = ({ targetValue, suffix }) => {
+  // PropTypes validation for AnimatedNumber
+  AnimatedNumber.propTypes = {
+    targetValue: PropTypes.number.isRequired,
+    suffix: PropTypes.string,
+  };
   const [count, setCount] = useState(0);
   const { ref, inView } = useInView({ triggerOnce: true });
 
@@ -43,6 +49,8 @@ const AnimatedNumber = ({ targetValue, suffix }) => {
 };
 
 const CompaniesSection = memo(() => {
+  // Add display name for memoized component
+  CompaniesSection.displayName = "CompaniesSection";
   return (
     <section className="p-6 bg-heading text-primary">
       <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3 gap-6">
